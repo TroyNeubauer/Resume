@@ -1,0 +1,98 @@
+name: Troy Neubauer
+source_code: github.com/TroyNeubauer/Resume
+host_link: tneubauer.xyz/resume
+email: troyneubauer@gmail.com
+phone_number:
+  country_code: 1
+  number: 7034008259
+location: &fairfax
+  city: Fairfax
+  state: VA
+  country: US
+linkedin_profile: troyneubauer
+github_profile: TroyNeubauer
+about_me: >
+  Full-stack site reliability engineer and data scientist with extensive
+  background in mathematics. Self-motivated learner and problem solver with an
+  affinity for automation, scalability, and distributed computing.
+education:
+- institution: Embry Riddle Aeronautical University
+  major: Computer Science
+  description: Specialization in CyberSecurity
+  period:
+    start: "2020-09-01T00:00:00Z"
+    end: "2023-05-15T00:00:00Z"
+  degree: BACHELORS
+  location: &daytona
+    city: Daytona Beach
+    state: FL
+    country: US
+- institution: George Mason University
+  major: None
+  description: Took 21 credits of college credit while in high school
+  period:
+    start: "2018-09-01T00:00:00Z"
+    end: "2020-05-15T00:00:00Z"
+  degree: BACHELORS
+  location: *fairfax
+experience:
+- title: Chief Technology Officer
+  organization: null.black Inc
+  website: https://null.black
+  period:
+    start: "2021-04-12T00:00:00Z"
+  location: *fairfax
+  duty:
+  - description: Lead five person technical team in overhauling frontend, backend, VPN app and VPN edge server
+    tags: [Leadership]
+  - description: Built new VPN edge server that is currently deployed to 7 VPS's across the globe
+    tags: [Tokio, rocket, serde, Docker, Wireguard, Wintun, Premake, Lua, RapidJson, Curl]
+  - description: 
+- title: Undergraduate Researcher
+  organization: Office of Naval Research
+  website: https://github.com/TroyNeubauer/NS3NonIdealConditions2021
+  period:
+    start: "2020-09-10T00:00:00Z"
+  location: *daytona
+  duty:
+- title: Software Lead
+  organization: ERAU ERFSEDS Club, Software Lead
+  website: https://erfsedsrocketry.org/projects/cerberus
+  period:
+    start: "2020-09-10T00:00:00Z"
+  location: *daytona
+  duty:
+skills:
+- category: Soft Skills
+  tags:
+  - Leadership
+  - Active Listening
+  - Constructive Feedback
+- category: Rust
+  tags:
+  - Tokio
+  - rocket
+  - serde
+  - Docker
+- category: C++
+  tags:
+  - RapidJson
+  - NS3
+  - Curl
+- category: DevOps
+  tags:
+  - Docker
+  - GitHub Actions
+  - git
+  - firewalld
+  - Fedora 34
+- category: Other
+  tags:
+  - Wireguard
+  - Linux Bash
+  - Wintun
+  - Netlogo 3D
+  - Premake
+  - STM32
+  - Lua
+
