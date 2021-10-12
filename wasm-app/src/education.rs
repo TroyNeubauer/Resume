@@ -10,6 +10,7 @@ impl std::string::ToString for Education_Degree {
         match self {
             Education_Degree::BACHELORS => "B.S.".to_string(),
             Education_Degree::MASTERS => "M.S.".to_string(),
+            Education_Degree::NON_DEGREE => "Non-Degree".to_string(),
         }
     }
 }
@@ -53,7 +54,10 @@ impl Component for EducationComponent {
 
 impl EducationComponent {
     fn view_entry(&self, edu: &Education) -> Html {
-        let title = format!("{} in {}", edu.get_degree().to_string(), edu.get_major());
+        let title = match edu.get_degree() {
+            Education_Degree::NON_DEGREE => "Non-Degree".to_owned(),
+            _ => format!("{} in {}", edu.get_degree().to_string(), edu.get_major()),
+        };
         let period = edu.get_period().clone();
         let location = edu.get_location().clone();
         let desc = match edu.get_description() {

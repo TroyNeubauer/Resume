@@ -43,6 +43,7 @@ message Education {
     enum Degree {
         BACHELORS = 0;
         MASTERS = 1;
+        NON_DEGREE = 2;
     }
 
     Degree degree = 5;

@@ -1764,6 +1764,7 @@ impl ::protobuf::reflect::ProtobufValue for Education {
 pub enum Education_Degree {
     BACHELORS = 0,
     MASTERS = 1,
+    NON_DEGREE = 2,
 }
 
 impl ::protobuf::ProtobufEnum for Education_Degree {
@@ -1775,6 +1776,7 @@ impl ::protobuf::ProtobufEnum for Education_Degree {
         match value {
             0 => ::std::option::Option::Some(Education_Degree::BACHELORS),
             1 => ::std::option::Option::Some(Education_Degree::MASTERS),
+            2 => ::std::option::Option::Some(Education_Degree::NON_DEGREE),
             _ => ::std::option::Option::None
         }
     }
@@ -1783,6 +1785,7 @@ impl ::protobuf::ProtobufEnum for Education_Degree {
         static values: &'static [Education_Degree] = &[
             Education_Degree::BACHELORS,
             Education_Degree::MASTERS,
+            Education_Degree::NON_DEGREE,
         ];
         values
     }
@@ -2643,22 +2646,23 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     \x14\n\x05state\x18\x02\x20\x01(\tR\x05state\x12\x18\n\x07country\x18\
     \x03\x20\x01(\tR\x07country\"k\n\tDateRange\x120\n\x05start\x18\x01\x20\
     \x01(\x0b2\x1a.google.protobuf.TimestampR\x05start\x12,\n\x03end\x18\x02\
-    \x20\x01(\x0b2\x1a.google.protobuf.TimestampR\x03end\"\x81\x02\n\tEducat\
+    \x20\x01(\x0b2\x1a.google.protobuf.TimestampR\x03end\"\x91\x02\n\tEducat\
     ion\x12\x20\n\x0binstitution\x18\x01\x20\x01(\tR\x0binstitution\x12\x14\
     \n\x05major\x18\x02\x20\x01(\tR\x05major\x12\x20\n\x0bdescription\x18\
     \x03\x20\x01(\tR\x0bdescription\x12\"\n\x06period\x18\x04\x20\x01(\x0b2\
     \n.DateRangeR\x06period\x12)\n\x06degree\x18\x05\x20\x01(\x0e2\x11.Educa\
     tion.DegreeR\x06degree\x12%\n\x08location\x18\x06\x20\x01(\x0b2\t.Locati\
-    onR\x08location\"$\n\x06Degree\x12\r\n\tBACHELORS\x10\0\x12\x0b\n\x07MAS\
-    TERS\x10\x01\"\xc6\x01\n\nExperience\x12\x14\n\x05title\x18\x01\x20\x01(\
-    \tR\x05title\x12\"\n\x0corganization\x18\x02\x20\x01(\tR\x0corganization\
-    \x12\x18\n\x07website\x18\x03\x20\x01(\tR\x07website\x12\"\n\x06period\
-    \x18\x04\x20\x01(\x0b2\n.DateRangeR\x06period\x12%\n\x08location\x18\x05\
-    \x20\x01(\x0b2\t.LocationR\x08location\x12\x19\n\x04duty\x18\x06\x20\x03\
-    (\x0b2\x05.DutyR\x04duty\"<\n\x04Duty\x12\x20\n\x0bdescription\x18\x01\
-    \x20\x01(\tR\x0bdescription\x12\x12\n\x04tags\x18\x02\x20\x03(\tR\x04tag\
-    s\"?\n\rSkillCategory\x12\x1a\n\x08category\x18\x01\x20\x01(\tR\x08categ\
-    ory\x12\x12\n\x04tags\x18\x02\x20\x03(\tR\x04tagsb\x06proto3\
+    onR\x08location\"4\n\x06Degree\x12\r\n\tBACHELORS\x10\0\x12\x0b\n\x07MAS\
+    TERS\x10\x01\x12\x0e\n\nNON_DEGREE\x10\x02\"\xc6\x01\n\nExperience\x12\
+    \x14\n\x05title\x18\x01\x20\x01(\tR\x05title\x12\"\n\x0corganization\x18\
+    \x02\x20\x01(\tR\x0corganization\x12\x18\n\x07website\x18\x03\x20\x01(\t\
+    R\x07website\x12\"\n\x06period\x18\x04\x20\x01(\x0b2\n.DateRangeR\x06per\
+    iod\x12%\n\x08location\x18\x05\x20\x01(\x0b2\t.LocationR\x08location\x12\
+    \x19\n\x04duty\x18\x06\x20\x03(\x0b2\x05.DutyR\x04duty\"<\n\x04Duty\x12\
+    \x20\n\x0bdescription\x18\x01\x20\x01(\tR\x0bdescription\x12\x12\n\x04ta\
+    gs\x18\x02\x20\x03(\tR\x04tags\"?\n\rSkillCategory\x12\x1a\n\x08category\
+    \x18\x01\x20\x01(\tR\x08category\x12\x12\n\x04tags\x18\x02\x20\x03(\tR\
+    \x04tagsb\x06proto3\
 ";
 
 static file_descriptor_proto_lazy: ::protobuf::rt::LazyV2<::protobuf::descriptor::FileDescriptorProto> = ::protobuf::rt::LazyV2::INIT;
