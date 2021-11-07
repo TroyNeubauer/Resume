@@ -1,6 +1,8 @@
 # Resume as Code
 
-View my resume: [cv.kylekosic.dev](https://cv.kylekosic.dev)
+Forked from: https://github.com/kykosic/resume-as-code
+
+View my resume: [cv.kylekosic.dev](https://tneubauer.xyz/resume)
 
 
 After years of rewriting resumes in Microsoft Word, Adobe Photoshop, and LaTeX, I decided to start maintaining my resume as a static web page with the content stored in a simple YAML file.

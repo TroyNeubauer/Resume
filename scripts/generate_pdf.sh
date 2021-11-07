@@ -9,7 +9,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 fi
 
-if ! [[ $(chrome --version) ]]; then
+if ! [[ $(google-chrome-stable --version) ]]; then
   echo "No 'chrome' command found for running headless PDF generation" >&2
   exit 1
 fi
@@ -41,7 +41,7 @@ cd ..
 sleep 1
 
 {
-    chrome --headless --disable-gpu \
+    google-chrome-stable --headless --disable-gpu \
         --run-all-compositor-stages-before-draw \
         --print-to-pdf="$OUTFILE" \
         http://localhost:8081

@@ -73,14 +73,14 @@ experience:
     start: "2020-09-10T00:00:00Z"
   location: *daytona
   duty:
-  - description: Researching the effects of Cyber Attacks and non ideal conditions on Communications in UAS Swarms
+  - description: Researching the effects of Cyber Attacks and non ideal conditions on communications in UAS Swarms
     tags: [Netlogo 3D, NS3, Calculus, Linux Bash, Technical Writing]
   - description: Produced optimization tool that found UAV swarming parameters which lead to 72% faster swarm formation time
     tags: [rust, Calculus, serde]
 
 - title: Software Lead
   organization: ERFSEDS Club, Nova Flight Computer
-  website: https://erfsedsrocketry.org/projects/cerberus
+  website: https://github.com/ERFSEDS/
   period:
     start: "2020-09-10T00:00:00Z"
   location: *daytona
@@ -91,6 +91,19 @@ experience:
     tags: [STM32, Rust, serde, Github Actions]
   - description: Created rocket data simulation utility (acceleration, position, rotation, impulse, etc) for sensors placed on a custom PCB
     tags: [CMake, Calculus, RapidJson, Embedded C]
+
+- title: Vice President
+  organization: Cryptocurency Club
+  period:
+    start: "2021-04-10T00:00:00Z"
+  location: *daytona
+  duty:
+  - description: Organized meetings to further knowledge of Cryptocurency at Embry-Riddle Aeronautical University
+    tags: [Leadership, Active Listening]
+  - description: Gave lectures on the origins of Bitcoin, hashing, and mining setups
+    tags: [Lecturing]
+
+#Past positions
 
 - title: Payload Lead
   organization: NASA Student Launch Innovative
@@ -104,13 +117,43 @@ experience:
   - description: Lead development of flight software to compare methods of determining altitude (barometer vs GPS vs accelerometer, vs Pitot tube)
     tags: [Leadership, Constructive Feedback, Calculus]
   - description: Implemented data collection to SD Card and real time RF downlink to ground station
-    tags: [Embedded C, STM32]
+    tags: [Embedded C, STM32, Embedded ARM, XBee RF Module]
   - description: Created ground station to render graphs of real time data
     tags: [Premake, OpenGL, git, Linux Bash]
   - description: Oversaw design of Printed Circuit Boards (PCBs) and circuit schematics that met production requirements for fabrication plants in both US and China
-    tags: [STM32, git]
+    tags: [STM32, git, Embedded ARM]
   - description: Defended design choices through briefs, papers and proposals that were thoroughly reviewed by NASA engineers
     tags: [Technical Writing]
+
+- title: Software Lead
+  organization: First Robotics Competition
+  period: 
+    start: "2017-09-1T00:00:00Z"
+    end: "2020-05-1T00:00:00Z"
+  location: *fairfax
+  duty:
+  - description: Lead 5 person software team in completing robot software
+    tags: [Leadership, CMake, Active Listening]
+  - description: Forged autonomous mode which made decisions based computer vision and sensor input
+    tags: [Embedded ARM, roboRIO, OpenCV, Lidar Sensor, Talon Motor Controllers]
+  - description: Delivered driver input data to actuate mechanisms on the robot
+    tags: [OpenCV, Talon Motor Controllers, Servos, Encoders]
+  - description: Placed second in the 2020 Virginia regional Battlefield competition
+  - description: Competed in FRC Worlds 2018, and finished in the top half of our division.
+
+- title: Vice President
+  organization: Computer Science Club
+  period: 
+    start: "2017-09-1T00:00:00Z"
+    end: "2020-06-1T00:00:00Z"
+  location: *fairfax
+  duty:
+  - description: Planned and led meetings, organized a local hackathon
+    tags: [Leadership]
+  - description: Gave lectures on topics ranging from net neutrality to N-Body physics implemented in parallel on the GPU
+    tags: [Lecturing]
+  - description: Executed subcommittee idea that brought accessible personal projects to members
+    tags: [Active Listening]
 
 skills:
 - category: Soft Skills
@@ -120,6 +163,7 @@ skills:
   - Constructive Feedback
   - Business Management
   - Technical Writing
+  - Lecturing
 
 - category: C++
   tags:
@@ -128,12 +172,23 @@ skills:
   - Premake
   - NS3
   - Curl
+  - OpenCV
 
 - category: Rust
   tags:
   - Tokio
   - rocket
   - serde
+
+- category: Embedded
+  tags:
+  - Embedded ARM
+  - Encoders
+  - Servos
+  - XBee RF Module
+  - Lidar Sensor
+  - Talon Motor Controllers
+  - roboRIO
 
 - category: DevOps
   tags:
