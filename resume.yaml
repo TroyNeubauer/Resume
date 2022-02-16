@@ -1,0 +1,209 @@
+name: Troy Neubauer
+source_code: github.com/TroyNeubauer/Resume
+host_link: tneubauer.xyz/resume
+email: troyneubauer@gmail.com
+phone_number:
+  country_code: 1
+  number: 7034008259
+location: &fairfax
+  city: Fairfax
+  state: VA
+  country: US
+linkedin_profile: troyneubauer
+github_profile: TroyNeubauer
+about_me: >
+  Driven Computer Science student with a passion for high performance embedded systems. Looking for a challenging position
+  relating to software engineering, aerospace engineering, or robotics. 
+
+education:
+- institution: Embry Riddle Aeronautical University
+  major: Computer Science
+  description: Specialization in CyberSecurity
+  period:
+    start: 2020-09-01
+    end: 2023-05-15
+  degree: Bachelors
+  location: &daytona
+    city: Daytona Beach
+    state: FL
+    country: US
+
+- institution: George Mason University
+  major: None
+  description: Completed 21 credits of college credit while in high school
+  period:
+    start: 2018-09-01
+    end: 2020-05-15
+  degree: NonDegree
+  location: *fairfax
+
+
+experience:
+- title: Chief Technology Officer
+  organization: null.black Inc
+  website: https://null.black
+  period:
+    start: 2021-04-12
+  location: *fairfax
+  duty:
+  - description: Lead five person technical team in overhauling frontend, backend, VPN app and VPN edge server
+    tags: [Leadership, Drone CI/CD, Phabricator]
+  - description: Built VPN edge server currently deployed to 7 servers across the globe that handle terabytes of network traffic
+    tags: [Tokio, rocket, serde, Docker, Wireguard, Curl, Fedora 34, firewalld]
+  - description: Created core VPN abstractions for cross platform support across Windows, MacOS, Linux, IOS, and Android
+    tags: [Tokio, serde, Wireguard, git, Premake, Lua, RapidJson]
+  - description: Oversaw design-oriented rewrite of the https://null.black frontend
+    tags: [Active Listening, Javascript, React]
+
+- title: Undergraduate Researcher
+  organization: Office of Naval Research
+  website: https://github.com/TroyNeubauer/NS3NonIdealConditions2021
+  period:
+    start: 2020-09-10
+  location: *daytona
+  duty:
+  - description: Researching the effects of Cyber Attacks and non ideal conditions on communications in UAS Swarms
+    tags: [Netlogo 3D, NS3, Calculus, Linux Bash, Technical Writing]
+  - description: Produced optimization tool that found UAV swarming parameters which lead to 72% faster swarm formation time
+    tags: [rust, Calculus, serde]
+
+- title: Software Lead
+  organization: ERFSEDS Club, Nova Flight Computer
+  website: https://github.com/ERFSEDS/
+  period:
+    start: 2020-09-10
+  location: *daytona
+  duty:
+  - description: Leading 12 person team in creating software for a custom flight computer to be used by Embry Riddle's Future Space Explorers and Developers Society (rocket club)
+    tags: [Leadership, Active Listening]
+  - description: Created message protocol for serializing data from three sensors at 1000Hz on microcontroller running at 80Mhz
+    tags: [STM32, Rust, serde, Github Actions]
+  - description: Created rocket data simulation utility (acceleration, position, rotation, impulse, etc) for sensors placed on a custom PCB
+    tags: [CMake, Calculus, RapidJson, Embedded C]
+
+- title: Vice President
+  organization: Cryptocurency Club
+  period:
+    start: 2021-04-10
+  location: *daytona
+  duty:
+  - description: Organized meetings to further knowledge of Cryptocurency at Embry-Riddle Aeronautical University
+    tags: [Leadership, Active Listening]
+  - description: Gave lectures on the origins of Bitcoin, hashing, and mining setups
+    tags: [Lecturing]
+
+#Past positions
+
+- title: Payload Lead
+  organization: NASA Student Launch Innovative
+  period:
+    start: 2019-04-10
+    end: 2020-05-10
+  location: *fairfax
+  duty:
+  - description: Collaborated with vehicle, software development and business teams to meet vehicle integration, processing and budgetary requirements
+    tags: [Leadership, Active Listening]
+  - description: Lead development of flight software to compare methods of determining altitude (barometer vs GPS vs accelerometer, vs Pitot tube)
+    tags: [Leadership, Constructive Feedback, Calculus]
+  - description: Implemented data collection to SD Card and real time RF downlink to ground station
+    tags: [Embedded C, STM32, Embedded ARM, XBee RF Module]
+  - description: Created ground station to render graphs of real time data
+    tags: [Premake, OpenGL, git, Linux Bash]
+  - description: Oversaw design of Printed Circuit Boards (PCBs) and circuit schematics that met production requirements for fabrication plants in both US and China
+    tags: [STM32, git, Embedded ARM]
+  - description: Defended design choices through briefs, papers and proposals that were thoroughly reviewed by NASA engineers
+    tags: [Technical Writing]
+
+- title: Software Lead
+  organization: First Robotics Competition
+  period: 
+    start: 2017-09-01
+    end: 2020-05-01
+  location: *fairfax
+  duty:
+  - description: Lead 5 person software team in completing robot software
+    tags: [Leadership, CMake, Active Listening]
+  - description: Forged autonomous mode which made decisions based computer vision and sensor input
+    tags: [Embedded ARM, roboRIO, OpenCV, Lidar Sensor, Talon Motor Controllers]
+  - description: Delivered driver input data to actuate mechanisms on the robot
+    tags: [OpenCV, Talon Motor Controllers, Servos, Encoders]
+  - description: Placed second in the 2020 Virginia regional Battlefield competition
+  - description: Competed in FRC Worlds 2018, and finished in the top half of our division.
+
+- title: Vice President
+  organization: Computer Science Club
+  period: 
+    start: 2017-09-01
+    end: 2020-06-01
+  location: *fairfax
+  duty:
+  - description: Planned and led meetings, organized a local hackathon
+    tags: [Leadership]
+  - description: Gave lectures on topics ranging from net neutrality to N-Body physics implemented in parallel on the GPU
+    tags: [Lecturing]
+  - description: Executed subcommittee idea that brought accessible personal projects to members
+    tags: [Active Listening]
+
+skills:
+- category: Soft Skills
+  tags:
+  - Leadership
+  - Active Listening
+  - Constructive Feedback
+  - Business Management
+  - Technical Writing
+  - Lecturing
+
+- category: C++
+  tags:
+  - RapidJson
+  - CMake
+  - Premake
+  - NS3
+  - Curl
+  - OpenCV
+
+- category: Rust
+  tags:
+  - Tokio
+  - rocket
+  - serde
+
+- category: Embedded
+  tags:
+  - Embedded ARM
+  - Encoders
+  - Servos
+  - XBee RF Module
+  - Lidar Sensor
+  - Talon Motor Controllers
+  - roboRIO
+
+- category: DevOps
+  tags:
+  - Docker
+  - GitHub Actions
+  - Drone CI/CD
+  - Phabricator
+  - git
+  - firewalld
+  - Fedora 34
+
+- category: Awards
+  tags:
+  - Bronze Palm Eagle Scout
+  - Second Place in Innovative Defense Technologies 2017 Black Box Testing contest
+
+- category: Other
+  tags:
+  - Embedded C
+  - Wireguard
+  - Linux Bash
+  - Wintun
+  - Netlogo 3D
+  - STM32
+  - Lua
+  - Javascript
+  - React
+  - OpenGL
+

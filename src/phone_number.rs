@@ -33,7 +33,7 @@ impl Component for PhoneNumberComponent {
         for (i, c) in self
             .props
             .phone
-            .get_number()
+            .number
             .to_string()
             .chars()
             .rev()
@@ -46,7 +46,7 @@ impl Component for PhoneNumberComponent {
         }
         html! {
             <>
-            <i class="fas fa-phone"></i>{ format!("+{} {}", self.props.phone.get_country_code(), phone) }
+            <i class="fas fa-phone"></i>{ format!("+{} {}", self.props.phone.country_code, phone) }
             </>
         }
     }

@@ -3,14 +3,14 @@ use yewtil::NeqAssign;
 
 use crate::date_range::DateRangeComponent;
 use crate::location::LocationComponent;
-use crate::protos::resume::{Education, Education_Degree};
+use crate::protos::resume::{Education, EducationDegree};
 
-impl std::string::ToString for Education_Degree {
+impl std::string::ToString for EducationDegree {
     fn to_string(&self) -> String {
-        match self {
-            Education_Degree::BACHELORS => "B.S.".to_string(),
-            Education_Degree::MASTERS => "M.S.".to_string(),
-            Education_Degree::NON_DEGREE => "Non-Degree".to_string(),
+        match *self {
+            EducationDegree::Bachelors => "B.S.".to_string(),
+            EducationDegree::Masters => "M.S.".to_string(),
+            EducationDegree::NonDegree => "Non-Degree".to_string(),
         }
     }
 }
@@ -54,13 +54,10 @@ impl Component for EducationComponent {
 
 impl EducationComponent {
     fn view_entry(&self, edu: &Education) -> Html {
-        let title = match edu.get_degree() {
-            Education_Degree::NON_DEGREE => "Non-Degree".to_owned(),
-            _ => format!("{} in {}", edu.get_degree().to_string(), edu.get_major()),
-        };
-        let period = edu.get_period().clone();
-        let location = edu.get_location().clone();
-        let desc = match edu.get_description() {
+        let title = edu.degree.to_string();
+        let period = edu.period.clone();
+        let location = edu.location.clone();
+        let desc = match &edu.description {
             x if x != "" => html! { <p>{ format!("{}", x) }</p> },
             _ => html! {},
         };
@@ -68,7 +65,7 @@ impl EducationComponent {
             <li>
                 <div class="edu-view">
                     <h3>{ title }</h3>
-                    <h4>{ edu.get_institution() }</h4>
+                    <h4>{ &edu.institution }</h4>
                     <div class="detail">
                         <span class="detail-date"><DateRangeComponent period=period/></span>
                         <span class="detail-loc"><LocationComponent location=location/></span>

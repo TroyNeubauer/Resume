@@ -12,14 +12,13 @@ mod tag_agent;
 
 use std::rc::Rc;
 
-use protobuf::{error::ProtobufError, parse_from_bytes};
 use wasm_bindgen::prelude::*;
 use yew::prelude::*;
 
 use protos::resume::Resume;
 use resume::ResumeComponent;
 
-const RESUME_DATA: &[u8] = include_bytes!("resume.pb");
+const RESUME_YAML: &str = include_str!("../resume.yaml");
 
 enum Msg {}
 
@@ -66,8 +65,8 @@ pub fn run_app() {
     App::<Model>::new().mount_to_body_with_props(props);
 }
 
-pub fn load_resume() -> Result<Resume, ProtobufError> {
-    parse_from_bytes::<Resume>(RESUME_DATA)
+pub fn load_resume() -> Result<Resume, serde_yaml::Error> {
+    serde_yaml::from_str(RESUME_YAML)
 }
 
 #[cfg(test)]
@@ -75,7 +74,6 @@ mod tests {
     use super::*;
     #[test]
     fn test_load_resume() {
-        let res = load_resume();
-        assert!(res.is_ok());
+        let _ = load_resume().unwrap();
     }
 }

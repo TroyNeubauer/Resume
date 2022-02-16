@@ -40,7 +40,7 @@ impl Component for ExperienceComponent {
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         let tags = match msg {
             Msg::Hover(duty) => {
-                let tags = duty.tags.to_vec();
+                let tags = duty.tags.clone().unwrap_or_default();
                 self.hovered = Some(duty);
                 tags
             }
@@ -71,18 +71,19 @@ impl Component for ExperienceComponent {
 
 impl ExperienceComponent {
     fn view_entry(&self, exp: &Experience) -> Html {
-        let period = exp.get_period().clone();
-        let location = exp.get_location().clone();
+        let period = exp.period.clone();
+        let location = exp.location.clone();
+        let website = exp.website.clone().unwrap_or_else(|| String::new());
         html! {
             <li>
-                <h3>{ exp.get_title() }</h3>
-                <h4><a href=exp.get_website()>{ exp.get_organization() }</a></h4>
+                <h3>{ &exp.title }</h3>
+                <h4><a href=website>{ &exp.organization }</a></h4>
                 <div class="detail">
                     <span class="detail-date"><DateRangeComponent period=period/></span>
                     <span class="detail-loc"><LocationComponent location=location/></span>
                 </div>
                 <ul class="duty-list">
-                    { for exp.get_duty().iter().map(|duty| self.view_duty(duty)) }
+                    { for exp.duty.iter().map(|duty| self.view_duty(duty)) }
                 </ul>
             </li>
         }
@@ -102,7 +103,7 @@ impl ExperienceComponent {
         }
         html! {
             <li class=class onmouseover=mouseover onmouseout=mouseout>
-                { duty.get_description() }
+                { &duty.description }
             </li>
         }
     }
