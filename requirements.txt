@@ -1,2 +1,0 @@
-protobuf>=3.0.0
-pyyaml>=5.3.1
