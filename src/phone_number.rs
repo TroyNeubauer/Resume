@@ -1,7 +1,7 @@
 use yew::prelude::*;
 use yewtil::NeqAssign;
 
-use crate::protos::resume::PhoneNumber;
+use crate::resume::PhoneNumber;
 
 #[derive(Clone, Properties, PartialEq)]
 pub struct PhoneNumberProps {

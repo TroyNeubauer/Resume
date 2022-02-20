@@ -5,8 +5,8 @@ mod education;
 mod experience;
 mod location;
 mod phone_number;
-mod protos;
 mod resume;
+mod resume_ui;
 mod skills;
 mod tag_agent;
 
@@ -15,8 +15,8 @@ use std::rc::Rc;
 use wasm_bindgen::prelude::*;
 use yew::prelude::*;
 
-use protos::resume::Resume;
-use resume::ResumeComponent;
+use resume::Resume;
+use resume_ui::ResumeComponent;
 
 const RESUME_YAML: &str = include_str!("../resume.yaml");
 

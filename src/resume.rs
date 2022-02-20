@@ -1,139 +1,132 @@
-use std::rc::Rc;
-use yew::prelude::*;
-use yewtil::NeqAssign;
+use serde::{Deserialize, Serialize};
+use std::str::FromStr;
 
-use crate::education::EducationComponent;
-use crate::experience::ExperienceComponent;
-use crate::location::LocationComponent;
-use crate::phone_number::PhoneNumberComponent;
-use crate::protos::resume::Resume;
-use crate::skills::SkillComponent;
-
-#[derive(Clone, Properties, PartialEq)]
-pub struct ResumeProps {
-    pub resume: Rc<Resume>,
+#[derive(PartialEq, Eq, Clone, Serialize, Deserialize)]
+pub struct Resume {
+    // message fields
+    pub name: String,
+    pub email: String,
+    pub source_code: String,
+    pub host_link: String,
+    pub phone_number: PhoneNumber,
+    pub location: Location,
+    pub linkedin_profile: String,
+    pub github_profile: String,
+    pub about_me: String,
+    pub education: Vec<Education>,
+    pub experience: Vec<Experience>,
+    pub skills: Vec<SkillCategory>,
 }
 
-pub enum Msg {
-    AmHover,
-    Clear,
+#[derive(PartialEq, Eq, Clone, Serialize, Deserialize)]
+pub struct PhoneNumber {
+    pub country_code: u32,
+    pub number: u64,
 }
 
-pub struct ResumeComponent {
-    props: ResumeProps,
-    link: ComponentLink<Self>,
-    am_hover: bool,
+#[derive(PartialEq, Eq, Clone, Serialize, Deserialize)]
+pub struct Location {
+    pub city: String,
+    pub state: String,
+    pub country: String,
 }
 
-impl Component for ResumeComponent {
-    type Message = Msg;
-    type Properties = ResumeProps;
+#[derive(PartialEq, Eq, Clone, Serialize, Deserialize)]
+pub struct Education {
+    pub institution: String,
+    pub major: String,
+    pub description: String,
+    pub period: DateRange,
+    pub degree: EducationDegree,
+    pub location: Location,
+}
 
-    fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
-        ResumeComponent {
-            props,
-            link,
-            am_hover: false,
-        }
-    }
+#[derive(Debug, PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
+pub enum EducationDegree {
+    Bachelors,
+    Masters,
+    NonDegree,
+}
 
-    fn update(&mut self, msg: Self::Message) -> ShouldRender {
-        match msg {
-            Msg::AmHover => self.am_hover = true,
-            Msg::Clear => self.am_hover = false,
+#[derive(PartialEq, Eq, Clone, Serialize, Deserialize)]
+pub struct Experience {
+    pub title: String,
+    pub organization: String,
+    pub website: Option<String>,
+    pub period: DateRange,
+    pub location: Location,
+    pub designation: Designation,
+    pub chapter: Chapter,
+    pub duty: Vec<Duty>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
+pub enum Designation {
+    Club,
+    Work,
+    Project,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
+pub enum Chapter {
+    HighSchool,
+    College,
+}
+
+#[derive(PartialEq, Eq, Clone, Serialize, Deserialize)]
+pub struct Duty {
+    pub description: String,
+    pub tags: Option<Vec<String>>,
+}
+
+#[derive(PartialEq, Eq, Clone, Serialize, Deserialize)]
+pub struct SkillCategory {
+    pub category: String,
+    pub tags: Vec<String>,
+}
+
+#[derive(PartialEq, Eq, Clone, Serialize, Deserialize)]
+pub struct DateRange {
+    pub start: Option<Date>,
+    pub end: Option<Date>,
+}
+
+#[derive(PartialEq, Eq, Hash, PartialOrd, Ord, Copy, Clone)]
+pub struct Date(pub chrono::NaiveDate);
+
+impl<'de> Deserialize<'de> for Date {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        use serde_yaml::Value;
+
+        let value = Value::deserialize(deserializer)?; 
+        let string = match value {
+            Value::String(s) => s,
+            _ => panic!("Expected string, got {:?}", value),
         };
-        true
-    }
+        let date = Date::from_str(&string).map_err(Error::custom)?;
 
-    fn change(&mut self, props: Self::Properties) -> ShouldRender {
-        self.props.neq_assign(props)
-    }
-
-    fn view(&self) -> Html {
-        let res = &self.props.resume;
-        let github = format!("github.com/{}", res.github_profile);
-        let linkedin = format!("linkedin.com/in/{}", res.linkedin_profile);
-        let phone = res.phone_number.clone();
-        let location = res.location.clone();
-        let education = res.education.to_vec();
-        let experience = res.experience.to_vec();
-        let skills = res.skills.to_vec();
-
-        let am_class = if self.am_hover { "am-hover" } else { "am" };
-        let on_hover = self.link.callback(|_| Msg::AmHover);
-        let on_clear = self.link.callback(|_| Msg::Clear);
-        html! {
-            <div class="content">
-                <header class="main-header">
-                    <h1 class="main-header-name">{ res.name.to_ascii_uppercase() }</h1>
-                    <ul class="main-header-list">
-                        <li><i class="fas fa-envelope"></i>{ &res.email }</li>
-                        <li><PhoneNumberComponent phone=phone /></li>
-                        <li><a href=format!("https://{}", &github)>
-                            <i class="fab fa-github"></i>{ github }</a></li>
-                        <li><a href=format!("https://{}", &linkedin)>
-                            <i class="fab fa-linkedin-in"></i>{ linkedin }</a></li>
-                        <li><LocationComponent location=location /></li>
-                    </ul>
-                </header>
-                <div class="main-column main-left">
-                    <EducationComponent education=education />
-                    <SkillComponent skills=skills/>
-                    { self.view_links() }
-                </div>
-                <div class="main-column main-right">
-                    <h2>{ "ABOUT ME"}</h2>
-                    <div class="about-me">
-                        <p class=am_class onmouseover=on_hover onmouseout=on_clear>
-                            { &res.about_me }
-                        </p>
-                    </div>
-                    <ExperienceComponent experience=experience/>
-                </div>
-            </div>
-        }
+        Ok(date)
     }
 }
 
-impl ResumeComponent {
-    fn view_links(&self) -> Html {
-        let res = &self.props.resume;
-        let source_code = &res.source_code;
-        let source_code_https = format!("https://{}", source_code);
-        let host_link = &res.host_link;
-        let pdf_name = format!("{}-Resume.pdf", res.name.replace(" ", ""));
-        html! {
-            <div class="links">
-                <h2>{ "LINKS" }</h2>
-                <ul class="links-list">
-                    <li class="screen-only">
-                        <a href=pdf_name>
-                            <i class="fa fa-external-link" aria-hidden="true"></i>
-                            { "Download a PDF of this resume" }
-                        </a>
-                    </li>
-                    <li class="screen-only">
-                        <a href=source_code_https>
-                            <i class="fa fa-external-link" aria-hidden="true"></i>
-                            { "View the source code" }
-                        </a>
-                    </li>
-                    <li class="print-only">
-                        { "View this resume as a WebAssembly app:" }
-                        <p>
-                            <i class="fa fa-external-link" aria-hidden="true"></i>
-                            { host_link }
-                        </p>
-                    </li>
-                    <li class="print-only">
-                        { "View the source code:" }
-                        <p>
-                            <i class="fa fa-external-link" aria-hidden="true"></i>
-                            { source_code }
-                        </p>
-                    </li>
-                </ul>
-            </div>
-        }
+impl Serialize for Date {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        let s = self.0.to_string();
+        serializer.serialize_str(&s)
+    }
+}
+
+impl FromStr for Date {
+    type Err = chrono::ParseError;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        Ok(Self(chrono::NaiveDate::from_str(s)?))
     }
 }
