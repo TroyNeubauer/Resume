@@ -3,8 +3,8 @@ set -e
 
 trunk build
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
-cd "$DIR"
+#DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+#cd "$DIR"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     shopt -s expand_aliases
@@ -16,7 +16,7 @@ if ! [[ $(google-chrome-stable --version) ]]; then
   exit 1
 fi
 
-OUTFILE=$(cat resume_data.yaml \
+OUTFILE=$(cat resume.yaml \
   | grep -E "^name:\s.+$" \
   | sed "s/name: //g" \
   | sed "s/ //g" \

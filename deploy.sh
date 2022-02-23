@@ -1,5 +1,5 @@
 #!/bin/bash
-trunk build --public-url "/resume"
+trunk build --public-url "/resume" --features print
 rm -rf /home/host/web/tneubauer.xyz/files/resume
 mkdir /home/host/web/tneubauer.xyz/files/resume
 
