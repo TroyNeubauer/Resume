@@ -78,7 +78,7 @@ impl Component for ResumeComponent {
             </header>
         };
 
-        if cfg!(feature = "print") {
+        /*if cfg!(feature = "print") {
             html! {
                 <div class="content"> 
                     <> { header } </>
@@ -95,27 +95,27 @@ impl Component for ResumeComponent {
                     </div>
                 </div>
             }
-        } else {
-            html! {
-                <div class="content"> 
-                    <> { header } </>
-                    <div class="main-column main-left">
-                        <EducationComponent education=education />
-                        <SkillComponent skills=skills/>
-                        { self.view_links() }
-                    </div>
-                    <div class="main-column main-right">
-                        <h2>{ "ABOUT ME"}</h2>
-                        <div class="about-me">
-                            <p class=am_class onmouseover=on_hover onmouseout=on_clear>
-                                { &res.about_me }
-                            </p>
-                        </div>
-                        <ExperienceComponent experience=experience/>
-                    </div>
+        } else {*/
+        html! {
+            <div class="content"> 
+                <> { header } </>
+                <div class="main-column main-left">
+                    <EducationComponent education=education />
+                    <SkillComponent skills=skills/>
+                    { self.view_links() }
                 </div>
-            }
+                <div class="main-column main-right">
+                    <h2>{ "ABOUT ME"}</h2>
+                    <div class="about-me">
+                        <p class=am_class onmouseover=on_hover onmouseout=on_clear>
+                            { &res.about_me }
+                        </p>
+                    </div>
+                    <ExperienceComponent experience=experience/>
+                </div>
+            </div>
         }
+        //}
     }
 }
 
