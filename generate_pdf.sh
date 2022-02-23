@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+trunk build
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 cd "$DIR"
 
@@ -14,29 +16,15 @@ if ! [[ $(google-chrome-stable --version) ]]; then
   exit 1
 fi
 
-if ! [[ $(python --version) ]]; then
-  echo "No 'python' command found for running headless PDF generation" >&2
-  exit 1
-fi
-
 OUTFILE=$(cat resume_data.yaml \
   | grep -E "^name:\s.+$" \
   | sed "s/name: //g" \
   | sed "s/ //g" \
   | xargs printf "%s-Resume.pdf\n")
 
-rm -rf dist/
-mkdir dist/
 
-cp wasm-app/{*.js,*.html,*.css,*.ico} dist/
-cp -r wasm-app/pkg/ dist/pkg/
-
-rm -rf "$OUTFILE"
-
-cd dist/
-python -m http.server 8081 &
+trunk serve --port 8081 &
 PID=$!
-cd ..
 
 sleep 1
 
@@ -51,4 +39,3 @@ sleep 1
 }
 
 kill "$PID"
-rm -rf dist/

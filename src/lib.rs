@@ -58,6 +58,7 @@ impl Component for Model {
 
 #[wasm_bindgen(start)]
 pub fn run_app() {
+    console_log::init_with_level(log::Level::Trace).unwrap();
     let resume = load_resume().unwrap();
     let props = ModelProps {
         resume: Rc::new(resume),

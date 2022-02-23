@@ -23,6 +23,7 @@ pub struct SkillComponent {
     _tag_agent: Box<dyn Bridge<TagAgent>>,
     selected_tags: HashSet<String>,
     hovered: Option<String>,
+    //tag_agent: Dispatcher<TagAgent>,
     link: ComponentLink<Self>,
 }
 
@@ -44,8 +45,13 @@ impl Component for SkillComponent {
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
-            Msg::Select(tags) => self.selected_tags = HashSet::from_iter(tags.iter().cloned()),
-            Msg::Hover(tag) => self.hovered = Some(tag),
+            Msg::Select(tags) => self.selected_tags = {
+                HashSet::from_iter(tags.iter().cloned())
+            },
+            Msg::Hover(tag) => {
+                self.hovered = Some(tag);
+                //Send message to experience bullets here
+            },
             Msg::Clear => self.hovered = None,
         };
         true
