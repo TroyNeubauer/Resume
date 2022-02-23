@@ -62,35 +62,59 @@ impl Component for ResumeComponent {
         let am_class = if self.am_hover { "am-hover" } else { "am" };
         let on_hover = self.link.callback(|_| Msg::AmHover);
         let on_clear = self.link.callback(|_| Msg::Clear);
-        html! {
-            <div class="content">
-                <header class="main-header">
-                    <h1 class="main-header-name">{ res.name.to_ascii_uppercase() }</h1>
-                    <ul class="main-header-list">
-                        <li><i class="fas fa-envelope"></i>{ &res.email }</li>
-                        <li><PhoneNumberComponent phone=phone /></li>
-                        <li><a href=format!("https://{}", &github)>
-                            <i class="fab fa-github"></i>{ github }</a></li>
-                        <li><a href=format!("https://{}", &linkedin)>
-                            <i class="fab fa-linkedin-in"></i>{ linkedin }</a></li>
-                        <li><LocationComponent location=location /></li>
-                    </ul>
-                </header>
-                <div class="main-column main-left">
-                    <EducationComponent education=education />
-                    <SkillComponent skills=skills/>
-                    { self.view_links() }
-                </div>
-                <div class="main-column main-right">
-                    <h2>{ "ABOUT ME"}</h2>
-                    <div class="about-me">
-                        <p class=am_class onmouseover=on_hover onmouseout=on_clear>
-                            { &res.about_me }
-                        </p>
+
+        let header = html! {
+            <header class="main-header">
+                <h1 class="main-header-name">{ res.name.to_ascii_uppercase() }</h1>
+                <ul class="main-header-list">
+                    <li><i class="fas fa-envelope"></i>{ &res.email }</li>
+                    <li><PhoneNumberComponent phone=phone /></li>
+                    <li><a href=format!("https://{}", &github)>
+                        <i class="fab fa-github"></i>{ github }</a></li>
+                    <li><a href=format!("https://{}", &linkedin)>
+                        <i class="fab fa-linkedin-in"></i>{ linkedin }</a></li>
+                    <li><LocationComponent location=location /></li>
+                </ul>
+            </header>
+        };
+
+        if cfg!(feature = "print") {
+            html! {
+                <div class="content"> 
+                    <> { header } </>
+                    <div class="main-column">
+                        <h2>{ "ABOUT ME"}</h2>
+                        <div class="about-me">
+                            <p class=am_class onmouseover=on_hover onmouseout=on_clear>
+                                { &res.about_me }
+                            </p>
+                        </div>
+                        <EducationComponent education=education />
+                        <ExperienceComponent experience=experience/>
+                        <SkillComponent skills=skills/>
                     </div>
-                    <ExperienceComponent experience=experience/>
                 </div>
-            </div>
+            }
+        } else {
+            html! {
+                <div class="content"> 
+                    <> { header } </>
+                    <div class="main-column main-left">
+                        <EducationComponent education=education />
+                        <SkillComponent skills=skills/>
+                        { self.view_links() }
+                    </div>
+                    <div class="main-column main-right">
+                        <h2>{ "ABOUT ME"}</h2>
+                        <div class="about-me">
+                            <p class=am_class onmouseover=on_hover onmouseout=on_clear>
+                                { &res.about_me }
+                            </p>
+                        </div>
+                        <ExperienceComponent experience=experience/>
+                    </div>
+                </div>
+            }
         }
     }
 }
