@@ -4,7 +4,7 @@ use yew::agent::Bridged;
 use yew::prelude::*;
 use yewtil::NeqAssign;
 
-use crate::protos::resume::SkillCategory;
+use crate::resume::SkillCategory;
 use crate::tag_agent::TagAgent;
 
 #[derive(Clone, Properties, PartialEq)]

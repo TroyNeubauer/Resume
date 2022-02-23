@@ -20,7 +20,7 @@ education:
   major: Computer Science
   description: Specialization in CyberSecurity
   period:
-    start: 2020-09-01
+    #start: 2020-09-01
     end: 2023-05-15
   degree: Bachelors
   location: &daytona
@@ -37,7 +37,6 @@ education:
   degree: NonDegree
   location: *fairfax
 
-
 experience:
 - title: Chief Technology Officer
   organization: null.black Inc
@@ -45,6 +44,8 @@ experience:
   period:
     start: 2021-04-12
   location: *fairfax
+  designation: Work
+  chapter: College
   duty:
   - description: Lead five person technical team in overhauling frontend, backend, VPN app and VPN edge server
     tags: [Leadership, Drone CI/CD, Phabricator]
@@ -61,6 +62,8 @@ experience:
   period:
     start: 2020-09-10
   location: *daytona
+  designation: Work
+  chapter: College
   duty:
   - description: Researching the effects of Cyber Attacks and non ideal conditions on communications in UAS Swarms
     tags: [Netlogo 3D, NS3, Calculus, Linux Bash, Technical Writing]
@@ -73,6 +76,8 @@ experience:
   period:
     start: 2020-09-10
   location: *daytona
+  designation: Club
+  chapter: College
   duty:
   - description: Leading 12 person team in creating software for a custom flight computer to be used by Embry Riddle's Future Space Explorers and Developers Society (rocket club)
     tags: [Leadership, Active Listening]
@@ -86,6 +91,8 @@ experience:
   period:
     start: 2021-04-10
   location: *daytona
+  designation: Club
+  chapter: College
   duty:
   - description: Organized meetings to further knowledge of Cryptocurency at Embry-Riddle Aeronautical University
     tags: [Leadership, Active Listening]
@@ -100,6 +107,8 @@ experience:
     start: 2019-04-10
     end: 2020-05-10
   location: *fairfax
+  designation: Club
+  chapter: HighSchool
   duty:
   - description: Collaborated with vehicle, software development and business teams to meet vehicle integration, processing and budgetary requirements
     tags: [Leadership, Active Listening]
@@ -120,6 +129,8 @@ experience:
     start: 2017-09-01
     end: 2020-05-01
   location: *fairfax
+  designation: Club
+  chapter: HighSchool
   duty:
   - description: Lead 5 person software team in completing robot software
     tags: [Leadership, CMake, Active Listening]
@@ -136,6 +147,8 @@ experience:
     start: 2017-09-01
     end: 2020-06-01
   location: *fairfax
+  designation: Club
+  chapter: HighSchool
   duty:
   - description: Planned and led meetings, organized a local hackathon
     tags: [Leadership]

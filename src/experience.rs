@@ -4,7 +4,7 @@ use yewtil::NeqAssign;
 
 use crate::date_range::DateRangeComponent;
 use crate::location::LocationComponent;
-use crate::protos::resume::{Duty, Experience};
+use crate::resume::{Duty, Experience};
 use crate::tag_agent::{TagAgent, TagUpdate};
 
 #[derive(Clone, Properties, PartialEq)]
@@ -73,7 +73,7 @@ impl ExperienceComponent {
     fn view_entry(&self, exp: &Experience) -> Html {
         let period = exp.period.clone();
         let location = exp.location.clone();
-        let website = exp.website.clone().unwrap_or_else(|| String::new());
+        let website = exp.website.clone().unwrap_or_default();
         html! {
             <li>
                 <h3>{ &exp.title }</h3>

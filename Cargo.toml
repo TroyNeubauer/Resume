@@ -4,6 +4,10 @@ version = "0.1.0"
 authors = ["Troy Neubauer <troyneubauer@gmail.com>"]
 edition = "2018"
 
+[features]
+default = []
+print = []
+
 [lib]
 crate-type = ["cdylib", "rlib"]
 

@@ -3,13 +3,13 @@ use std::string::ToString;
 use yew::prelude::*;
 use yewtil::NeqAssign;
 
-use crate::protos::resume::DateRange;
+use crate::resume::DateRange;
 
 pub trait DateFormat {
     fn format_month(&self) -> String;
 }
 
-impl DateFormat for crate::protos::resume::Date {
+impl DateFormat for crate::resume::Date {
     fn format_month(&self) -> String {
         self.0.format("%b %Y").to_string()
     }
@@ -41,15 +41,23 @@ impl Component for DateRangeComponent {
     }
 
     fn view(&self) -> Html {
-        let start = self.props.period.start.format_month();
+        let start = self.props.period.start.map(|s| s.format_month());
         let end = match self.props.period.end {
-            Some(end) => end.format_month(), 
-            None => "Present".to_string()
+            Some(end) => end.format_month(),
+            None => "Present".to_string(),
         };
-        html! {
-            <>
-            <i class="far fa-calendar-alt"></i>{ start }{ " – "}{ end }
-            </>
+        if let Some(start) = start {
+            html! {
+                <>
+                <i class="far fa-calendar-alt"></i>{ start }{ " – "}{ end }
+                </>
+            }
+        } else {
+            html! {
+                <>
+                <i class="far fa-calendar-alt"></i>{ end }
+                </>
+            }
         }
     }
 }
