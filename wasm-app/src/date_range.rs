@@ -1,21 +1,12 @@
 use std::string::ToString;
 
-use chrono::NaiveDateTime;
-use protobuf::well_known_types::Timestamp;
 use yew::prelude::*;
 use yewtil::NeqAssign;
 
-use crate::protos::resume::DateRange;
+use crate::protos::DateRange;
 
-pub trait DateFormat {
-    fn format_month(&self) -> String;
-}
-
-impl DateFormat for Timestamp {
-    fn format_month(&self) -> String {
-        let ndt = NaiveDateTime::from_timestamp(self.get_seconds(), 0);
-        ndt.format("%b %Y").to_string()
-    }
+fn format_month(date: &chrono::NaiveDate) -> String {
+    date.format("%b %Y").to_string()
 }
 
 #[derive(Clone, Properties, PartialEq)]
@@ -44,9 +35,9 @@ impl Component for DateRangeComponent {
     }
 
     fn view(&self) -> Html {
-        let start = self.props.period.get_start().format_month();
-        let end = if self.props.period.has_end() {
-            self.props.period.get_end().format_month()
+        let start = format_month(&self.props.period.start);
+        let end = if let Some(end) = &self.props.period.end {
+            format_month(end)
         } else {
             "Present".to_string()
         };

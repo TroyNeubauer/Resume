@@ -1,7 +1,7 @@
 use yew::prelude::*;
 use yewtil::NeqAssign;
 
-use crate::protos::resume::Location;
+use crate::protos::Location;
 
 #[derive(Clone, Properties, PartialEq)]
 pub struct LocationProps {
@@ -29,13 +29,13 @@ impl Component for LocationComponent {
     }
 
     fn view(&self) -> Html {
-        let country = self.props.location.get_country().to_ascii_uppercase();
+        let country = self.props.location.country.to_ascii_uppercase();
         let country_string = match country.as_str() {
             "US" => "".to_string(),
             _ => format!(", {}", country),
         };
-        let city = self.props.location.get_city();
-        let state = self.props.location.get_state();
+        let city = &self.props.location.city;
+        let state = &self.props.location.state;
         html! {
             <>
             <i class="fas fa-map-marker-alt"></i>{ format!{"{}, {}{}", city, state, country_string} }

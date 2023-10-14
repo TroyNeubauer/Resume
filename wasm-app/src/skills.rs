@@ -4,7 +4,7 @@ use yew::agent::Bridged;
 use yew::prelude::*;
 use yewtil::NeqAssign;
 
-use crate::protos::resume::SkillCategory;
+use crate::protos::SkillCategory;
 use crate::tag_agent::TagAgent;
 
 #[derive(Clone, Properties, PartialEq)]
@@ -69,12 +69,12 @@ impl Component for SkillComponent {
 
 impl SkillComponent {
     fn view_category(&self, cat: &SkillCategory) -> Html {
-        let tags = cat.get_tags().to_vec();
+        let tags = cat.tags.iter();
         html! {
             <li>
-                <h3>{ cat.get_category() }</h3>
+                <h3>{ &cat.category }</h3>
                 <div class="tag-container">
-                    { for tags.iter().map(|tag| self.view_tag(&tag)) }
+                    { for tags.map(|tag| self.view_tag(&tag)) }
                 </div>
             </li>
         }

@@ -6,7 +6,7 @@ use crate::education::EducationComponent;
 use crate::experience::ExperienceComponent;
 use crate::location::LocationComponent;
 use crate::phone_number::PhoneNumberComponent;
-use crate::protos::resume::Resume;
+use crate::protos::Resume;
 use crate::skills::SkillComponent;
 
 #[derive(Clone, Properties, PartialEq)]
@@ -51,13 +51,13 @@ impl Component for ResumeComponent {
 
     fn view(&self) -> Html {
         let res = &self.props.resume;
-        let github = format!("github.com/{}", res.get_github_profile());
-        let linkedin = format!("linkedin.com/in/{}", res.get_linkedin_profile());
-        let phone = res.get_phone_number().clone();
-        let location = res.get_location().clone();
-        let education = res.get_education().to_vec();
-        let experience = res.get_experience().to_vec();
-        let skills = res.get_skills().to_vec();
+        let github = format!("github.com/{}", res.github_profile);
+        let linkedin = format!("linkedin.com/in/{}", res.linkedin_profile);
+        let phone = &res.phone_number;
+        let location = res.parsed_location.clone().unwrap();
+        let education = &res.education;
+        let experience = &res.experience;
+        let skills = &res.skills;
 
         let am_class = if self.am_hover { "am-hover" } else { "am" };
         let on_hover = self.link.callback(|_| Msg::AmHover);
@@ -65,9 +65,9 @@ impl Component for ResumeComponent {
         html! {
             <div class="content">
                 <header class="main-header">
-                    <h1 class="main-header-name">{ res.get_name().to_ascii_uppercase() }</h1>
+                    <h1 class="main-header-name">{ res.name.to_ascii_uppercase() }</h1>
                     <ul class="main-header-list">
-                        <li><i class="fas fa-envelope"></i>{ res.get_email() }</li>
+                        <li><i class="fas fa-envelope"></i>{ &res.email }</li>
                         <li><PhoneNumberComponent phone=phone /></li>
                         <li><a href=format!("https://{}", &github)>
                             <i class="fab fa-github"></i>{ github }</a></li>
@@ -85,7 +85,7 @@ impl Component for ResumeComponent {
                     <h2>{ "ABOUT ME"}</h2>
                     <div class="about-me">
                         <p class=am_class onmouseover=on_hover onmouseout=on_clear>
-                            { res.get_about_me() }
+                            { &res.about_me }
                         </p>
                     </div>
                     <ExperienceComponent experience=experience/>
@@ -98,9 +98,9 @@ impl Component for ResumeComponent {
 impl ResumeComponent {
     fn view_links(&self) -> Html {
         let res = &self.props.resume;
-        let source_code = res.get_source_code();
+        let source_code = &res.source_code;
         let source_code_https = format!("https://{}", source_code);
-        let host_link = res.get_host_link();
+        let host_link = &res.host_link;
         let pdf_name = format!("{}-Resume.pdf", res.name.replace(" ", ""));
         html! {
             <div class="links">

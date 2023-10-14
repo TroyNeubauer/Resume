@@ -5,37 +5,43 @@ email: troyneubauer@gmail.com
 phone_number:
   country_code: 1
   number: 7034008259
-location: &fairfax
-  city: Fairfax
-  state: VA
-  country: US
+location: Daytona Beach
 linkedin_profile: troyneubauer
 github_profile: TroyNeubauer
 about_me: >
   Driven Computer Science student with a passion for high performance embedded systems. Looking for a challenging position
   relating to software engineering, aerospace engineering, or robotics. 
 
+locations:
+- city: Fairfax
+  state: Virginia
+  country: US
+- city: Daytona Beach
+  state: Florida
+  country: US
+- city: Costa Mesa
+  state: California
+  country: US
+
+
 education:
 - institution: Embry Riddle Aeronautical University
   major: Computer Science
   description: Specialization in CyberSecurity
   period:
-    start: "2020-09-01T00:00:00Z"
-    end: "2023-05-15T00:00:00Z"
-  degree: BACHELORS
-  location: &daytona
-    city: Daytona Beach
-    state: FL
-    country: US
+    start: 2020-09-01
+    end: 2023-05-15
+  degree: Bachelors
+  location: Daytona Beach
 
 - institution: George Mason University
   major: None
   description: Completed 21 credits of college credit while in high school
   period:
-    start: "2018-09-01T00:00:00Z"
-    end: "2020-05-15T00:00:00Z"
-  degree: NON_DEGREE
-  location: *fairfax
+    start: 2018-09-01
+    end: 2020-05-15
+  degree: NonDegree
+  location: Fairfax
 
 
 experience:
@@ -43,8 +49,8 @@ experience:
   organization: null.black Inc
   website: https://null.black
   period:
-    start: "2021-04-12T00:00:00Z"
-  location: *fairfax
+    start: 2021-04-12
+  location: Fairfax
   duty:
   - description: Lead five person technical team in overhauling frontend, backend, VPN app and VPN edge server
     tags: [Leadership, Drone CI/CD, Phabricator]
@@ -58,8 +64,8 @@ experience:
 - title: Chief Executive Officer, and Co-Founder
   organization: Basement Labs Incorporated
   period:
-    start: "2020-09-10T00:00:00Z"
-  location: *fairfax
+    start: 2020-09-10
+  location: Fairfax
   duty:
   - description: Rapid prototyping of mini-projects (embedded hardware and software) for eventual publication on hackaday.io
     tags: [Leadership, STM32, Rust, Embedded C]
@@ -70,8 +76,8 @@ experience:
   organization: Office of Naval Research
   website: https://github.com/TroyNeubauer/NS3NonIdealConditions2021
   period:
-    start: "2020-09-10T00:00:00Z"
-  location: *daytona
+    start: 2020-09-10
+  location: Daytona Beach
   duty:
   - description: Researching the effects of Cyber Attacks and non ideal conditions on communications in UAS Swarms
     tags: [Netlogo 3D, NS3, Calculus, Linux Bash, Technical Writing]
@@ -82,8 +88,8 @@ experience:
   organization: ERFSEDS Club, Nova Flight Computer
   website: https://github.com/ERFSEDS/
   period:
-    start: "2020-09-10T00:00:00Z"
-  location: *daytona
+    start: 2020-09-10
+  location: Daytona Beach
   duty:
   - description: Leading 12 person team in creating software for a custom flight computer to be used by Embry Riddle's Future Space Explorers and Developers Society (rocket club)
     tags: [Leadership, Active Listening]
@@ -95,8 +101,8 @@ experience:
 - title: Vice President
   organization: Cryptocurency Club
   period:
-    start: "2021-04-10T00:00:00Z"
-  location: *daytona
+    start: 2021-04-10
+  location: Daytona Beach
   duty:
   - description: Organized meetings to further knowledge of Cryptocurency at Embry-Riddle Aeronautical University
     tags: [Leadership, Active Listening]
@@ -108,9 +114,9 @@ experience:
 - title: Payload Lead
   organization: NASA Student Launch Innovative
   period:
-    start: "2019-04-10T00:00:00Z"
-    end: "2020-05-10T00:00:00Z"
-  location: *fairfax
+    start: 2019-04-10
+    end: 2020-05-10
+  location: Fairfax
   duty:
   - description: Collaborated with vehicle, software development and business teams to meet vehicle integration, processing and budgetary requirements
     tags: [Leadership, Active Listening]
@@ -128,9 +134,9 @@ experience:
 - title: Software Lead
   organization: First Robotics Competition
   period: 
-    start: "2017-09-1T00:00:00Z"
-    end: "2020-05-1T00:00:00Z"
-  location: *fairfax
+    start: 2017-09-1
+    end: 2020-05-1
+  location: Fairfax
   duty:
   - description: Lead 5 person software team in completing robot software
     tags: [Leadership, CMake, Active Listening]
@@ -139,14 +145,16 @@ experience:
   - description: Delivered driver input data to actuate mechanisms on the robot
     tags: [OpenCV, Talon Motor Controllers, Servos, Encoders]
   - description: Placed second in the 2020 Virginia regional Battlefield competition
+    tags: []
   - description: Competed in FRC Worlds 2018, and finished in the top half of our division.
+    tags: []
 
 - title: Vice President
   organization: Computer Science Club
   period: 
-    start: "2017-09-1T00:00:00Z"
-    end: "2020-06-1T00:00:00Z"
-  location: *fairfax
+    start: 2017-09-1
+    end: 2020-06-1
+  location: Fairfax
   duty:
   - description: Planned and led meetings, organized a local hackathon
     tags: [Leadership]
