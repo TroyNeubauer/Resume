@@ -65,7 +65,7 @@ pub fn run_app() {
     App::<Model>::new().mount_to_body_with_props(props);
 }
 
-const RESUME_DATA: &'static str = include_str!("../../resume_data.yaml");
+const RESUME_DATA: &'static str = include_str!("../resume_data.yaml");
 
 pub fn load_resume() -> Result<Resume, String> {
     let mut base = serde_yaml::from_str::<Resume>(RESUME_DATA).map_err(|e| format!("{e:?}"))?;

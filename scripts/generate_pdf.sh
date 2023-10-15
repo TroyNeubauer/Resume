@@ -25,13 +25,9 @@ OUTFILE=$(cat resume_data.yaml \
   | sed "s/ //g" \
   | xargs printf "%s-Resume.pdf\n")
 
-rm -rf dist/
-mkdir dist/
-
-cp wasm-app/{*.js,*.html,*.css,*.ico} dist/
-cp -r wasm-app/pkg/ dist/pkg/
-
 rm -rf "$OUTFILE"
+
+trunk build
 
 cd dist/
 python -m http.server 8081 &
