@@ -58,12 +58,17 @@ pub enum DegreeKind {
 
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 pub struct Experience {
+    #[serde(default)]
+    pub archived: bool,
     pub title: String,
     pub organization: String,
     pub website: Option<String>,
     pub period: DateRange,
     pub location: String,
     pub parsed_location: Option<Location>,
+    /// Global tasks for all duties
+    #[serde(default)]
+    pub tags: Vec<String>,
     pub duty: Vec<Duty>,
 }
 

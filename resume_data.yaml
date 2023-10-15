@@ -9,10 +9,12 @@ location: Daytona Beach
 linkedin_profile: troyneubauer
 github_profile: TroyNeubauer
 about_me: >
-  Driven Computer Science student with a passion for high performance embedded systems. Looking for a challenging position
-  relating to software engineering, aerospace engineering, or robotics. 
+  Driven Robotics Engineer with a passion for high performance systems, things that fly, embedded systems, and small details.
 
 locations:
+- city: Remote
+  state: Remote
+  country: US
 - city: Fairfax
   state: Virginia
   country: US
@@ -20,6 +22,9 @@ locations:
   state: Florida
   country: US
 - city: Costa Mesa
+  state: California
+  country: US
+- city: Mountain View
   state: California
   country: US
 
@@ -30,7 +35,7 @@ education:
   description: Specialization in CyberSecurity
   period:
     start: 2020-09-01
-    end: 2023-05-15
+    end: 2024-05-15
   degree: Bachelors
   location: Daytona Beach
 
@@ -43,28 +48,117 @@ education:
   degree: NonDegree
   location: Fairfax
 
-
 experience:
+- title: Robotics Software Engineer (contract)
+  organization: Anduril Industries Inc
+  website: https://anduril.com
+  period:
+    start: 2023-09-02
+  location: Remote
+  duty:
+  - description: Added support for waypoint missions on drone via manipulation of ArduCopter state machine inside high-level, deterministic, software state machine
+    tags: [Arducopter, Rust]
+  - description: Maintence of existing Android drone control app. As owner of the app, balancing feature requests with testing and bug fixing
+    tags: [Android, Gradle, Leadership, Rust]
+
+- title: Robotics Software Engineer
+  organization: Anduril Industries Inc
+  website: https://anduril.com
+  period:
+    start: 2023-01-23
+    end: 2023-08-18
+  location: Mountain View
+  duty:
+  - description: Wrote and validated experimental low-latency video stack which was shown in customer demo less than a year after joining the project
+    tags: [high-performance, Rust, Active Listening, Nvidia hardware platform]
+  - description: Used the Tracy profiler and evidence based iteration to improve total Rust video stack latency by 45% over previous implementation
+    tags: [Tracy, high-performance, rust, Scientific Method]
+  - description: Empirically derived time constant to correct offset vendor video timestamps for accurate state estimation
+    tags: [Scientific Method, Rust, Nvidia hardware platform]
+  - description: Re-wrote Jetpack Compose app for drone control in less than three months and demoed capability successfully to customer
+    tags: [Constructive Feedback, Jetpack Compose, Android, Gradle, Shared preferences, Application lifecycle]
+  - description: Optimized video stream on Android App by leveraging the Java Native Interface to utilize existing optimized, Rust-based, video pipeline 
+    tags: [JNI, Rust, Jetpack Compose, Android, Gradle, high-performance]
+
+- title: Sensor Integration Engineer Intern
+  organization: Anduril Industries Inc
+  website: https://anduril.com
+  period:
+    start: 2022-08-20
+    end: 2023-01-22
+  location: Remote
+  duty:
+  - description: Conducted analysis of existing low-latency video tooling which was found to be inadequate
+    tags: [Scientific Method, Technical Writing]
+  - description: Wrote low-latency hardware accelerated video stack in Rust for performing autonomous vehicle navigation via EO imaging in real time
+    tags: [high-performance]
+  - description: Designed zero copy parser for low latency integration with LRF
+    tags: [high-performance, Rust, binrw]
+
+- title: Sensor Integration Engineer Intern
+  organization: Anduril Industries Inc
+  website: https://anduril.com
+  period:
+    start: 2022-05-09
+    end: 2022-08-19
+  location: Costa Mesa
+  tags: [Rust, CAN, Nix] 
+  duty:
+  - description: Developed a closed loop air conditioning daemon to keep batteries within thermal tolerance autonomously
+    tags: [Control Theory]
+  - description: Established infrastructure for utilizing Rust with CAN devices across the robotics org
+    tags: [Leadership]
+  - description: Designed and implemented a manual control daemon to maintain human involvement in positioning of surveillance towers
+    tags: [GRPC]
+  - description: Utilized test driven development and CI/CD to rapidly validate and deploy new air conditioning daemon to production in six weeks as an intern
+    tags: [CircleCI]
+
 - title: Chief Technology Officer
   organization: null.black Inc
   website: https://null.black
   period:
     start: 2021-04-12
+    end: 2023-01-13
   location: Fairfax
   duty:
   - description: Lead five person technical team in overhauling frontend, backend, VPN app and VPN edge server
     tags: [Leadership, Drone CI/CD, Phabricator]
   - description: Built VPN edge server currently deployed to 7 servers across the globe that handle terabytes of network traffic
-    tags: [Tokio, rocket, serde, Docker, Wireguard, Curl, Fedora 34, firewalld]
+    tags: [Tokio, rocket, serde, firewalld]
+  - description: Migrated server architecture from OpenVPN to Wireguard with zero downtime for increased stability, performance, and maintainability
+    tags: [Tokio, rocket, serde, Wireguard, Leadership]
   - description: Created core VPN abstractions for cross platform support across Windows, MacOS, Linux, IOS, and Android
-    tags: [Tokio, serde, Wireguard, git, Premake, Lua, RapidJson]
+    tags: [Tokio, serde, Wireguard, git, Premake, Lua, RapidJson, Flutter]
+  - description: Utilized VPN abstractions and Flutter + Dart to make intuitive app guided by user testing
+    tags: [Constructive Feedback, Active Listening, Flutter]
   - description: Oversaw design-oriented rewrite of the https://null.black frontend
     tags: [Active Listening, Javascript, React]
 
+- title: Undergraduate Researcher
+  organization: Office of Naval Research
+  website: https://github.com/TroyNeubauer/NS3NonIdealConditions2021
+  period:
+    start: 2020-09-10
+    end: 2022-09-10
+  location: Daytona Beach
+  duty:
+  - description: Researching the effects of Cyber Attacks and non ideal conditions on communications in UAS Swarms
+    tags: [Netlogo 3D, NS3, Calculus, Linux Bash, Technical Writing]
+  - description: Produced optimization tool that found UAV swarming parameters which lead to 72% faster swarm formation time
+    tags: [Rust, Calculus, serde]
+  - description: "Published findings in AIAA/IEEE 2022: T. Neubauer and M. I. Akbas. \"SOSUAS: Stability Optimized Swarming for Unmanned Aerial Systems.\" In the AIAA/IEEE Digital Avionics Systems Conference (DASC), September, 2022."
+    tags: [Technical Writing, Leadership]
+  - description: "Presented preliminary research at Embry Riddle Aeronautical University’s Discovery Fair: https://commons.erau.edu/discovery-day/db-discovery-day-2021/poster-session/36"
+    tags: [Technical Writing, Lecturing]
+
+# Archived:
+
 - title: Chief Executive Officer, and Co-Founder
+  archived: true
   organization: Basement Labs Incorporated
   period:
     start: 2020-09-10
+    end: 2020-09-10
   location: Fairfax
   duty:
   - description: Rapid prototyping of mini-projects (embedded hardware and software) for eventual publication on hackaday.io
@@ -72,19 +166,8 @@ experience:
   - description: Completed filings necessary for tax and licensing compliance
     tags: [Active Listening, Business Management]
 
-- title: Undergraduate Researcher
-  organization: Office of Naval Research
-  website: https://github.com/TroyNeubauer/NS3NonIdealConditions2021
-  period:
-    start: 2020-09-10
-  location: Daytona Beach
-  duty:
-  - description: Researching the effects of Cyber Attacks and non ideal conditions on communications in UAS Swarms
-    tags: [Netlogo 3D, NS3, Calculus, Linux Bash, Technical Writing]
-  - description: Produced optimization tool that found UAV swarming parameters which lead to 72% faster swarm formation time
-    tags: [rust, Calculus, serde]
-
 - title: Software Lead
+  archived: true
   organization: ERFSEDS Club, Nova Flight Computer
   website: https://github.com/ERFSEDS/
   period:
@@ -99,6 +182,7 @@ experience:
     tags: [CMake, Calculus, RapidJson, Embedded C]
 
 - title: Vice President
+  archived: true
   organization: Cryptocurency Club
   period:
     start: 2021-04-10
@@ -109,9 +193,8 @@ experience:
   - description: Gave lectures on the origins of Bitcoin, hashing, and mining setups
     tags: [Lecturing]
 
-#Past positions
-
 - title: Payload Lead
+  archived: true
   organization: NASA Student Launch Innovative
   period:
     start: 2019-04-10
@@ -132,6 +215,7 @@ experience:
     tags: [Technical Writing]
 
 - title: Software Lead
+  archived: true
   organization: First Robotics Competition
   period: 
     start: 2017-09-1
@@ -141,7 +225,7 @@ experience:
   - description: Lead 5 person software team in completing robot software
     tags: [Leadership, CMake, Active Listening]
   - description: Forged autonomous mode which made decisions based computer vision and sensor input
-    tags: [Embedded ARM, roboRIO, OpenCV, Lidar Sensor, Talon Motor Controllers]
+    tags: [Embedded ARM, roboRIO, OpenCV, Lidar, Talon Motor Controllers]
   - description: Delivered driver input data to actuate mechanisms on the robot
     tags: [OpenCV, Talon Motor Controllers, Servos, Encoders]
   - description: Placed second in the 2020 Virginia regional Battlefield competition
@@ -150,6 +234,7 @@ experience:
     tags: []
 
 - title: Vice President
+  archived: true
   organization: Computer Science Club
   period: 
     start: 2017-09-1
@@ -164,6 +249,11 @@ experience:
     tags: [Active Listening]
 
 skills:
+- category: Awards
+  tags:
+  - Eagle Scout - Bronze Palm Boy Scouts of America
+  - Second Place in Innovative Defense Technologies 2017 Black Box Testing contest
+
 - category: Soft Skills
   tags:
   - Leadership
@@ -173,6 +263,35 @@ skills:
   - Technical Writing
   - Lecturing
 
+- category: Rust
+  tags:
+  - Tokio
+  - rocket
+  - serde
+  - high-performance
+  - binrw
+  - GRPC
+  - Rust
+
+- category: Embedded
+  tags:
+  - Embedded ARM
+  - Encoders
+  - Servos
+  - CAN
+  - XBee RF Module
+  - Lidar Sensor
+  - Talon Motor Controllers
+  - roboRIO
+
+- category: Networking
+  tags:
+  - iptables 
+  - Wintun
+  - Wiregaurd
+  - OpenVPN
+  - firewalld
+
 - category: C++
   tags:
   - RapidJson
@@ -180,45 +299,44 @@ skills:
   - Premake
   - NS3
   - Curl
+  - GRPC
   - OpenCV
-
-- category: Rust
-  tags:
-  - Tokio
-  - rocket
-  - serde
-
-- category: Embedded
-  tags:
-  - Embedded ARM
-  - Encoders
-  - Servos
-  - XBee RF Module
-  - Lidar Sensor
-  - Talon Motor Controllers
-  - roboRIO
 
 - category: DevOps
   tags:
   - Docker
   - GitHub Actions
   - Drone CI/CD
+  - Concourse CI/CD
+  - CircleCI
   - Phabricator
   - git
-  - firewalld
   - Fedora 34
 
-- category: Awards
+- category: Android
   tags:
-  - Bronze Palm Eagle Scout
-  - Second Place in Innovative Defense Technologies 2017 Black Box Testing contest
+  - Jetpack Compose
+  - Gradle
+  - Flutter
+  - Shared preferences
+  - Application lifecycle
+
+- category: Java
+  tags:
+  - JNI
+  - Gradle
+  - Java 13
 
 - category: Other
   tags:
+  - Arducopter
+  - Nix
+  - Control Theory
+  - Nvidia hardware platform
   - Embedded C
-  - Wireguard
-  - Linux Bash
-  - Wintun
+  - Linux
+  - Bash
+  - Scientific Method
   - Netlogo 3D
   - STM32
   - Lua

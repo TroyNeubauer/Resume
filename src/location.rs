@@ -36,10 +36,18 @@ impl Component for LocationComponent {
         };
         let city = &self.props.location.city;
         let state = &self.props.location.state;
-        html! {
-            <>
-            <i class="fas fa-map-marker-alt"></i>{ format!{"{}, {}{}", city, state, country_string} }
-            </>
+        if city == "Remote" {
+            html! {
+                <>
+                <i class="fas fa-map-marker-alt"></i>{ format!{"{}", city} }
+                </>
+            }
+        } else {
+            html! {
+                <>
+                <i class="fas fa-map-marker-alt"></i>{ format!{"{}, {}{}", city, state, country_string} }
+                </>
+            }
         }
     }
 }

@@ -62,7 +62,7 @@ impl Component for ExperienceComponent {
             <>
             <h2>{ "EXPERIENCE" }</h2>
             <ul class="experience-list">
-                { for self.props.experience.iter().map(|edu| self.view_entry(edu)) }
+                { for self.props.experience.iter().filter(|exp| !exp.archived).map(|edu| self.view_entry(edu)) }
             </ul>
             </>
         }

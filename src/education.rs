@@ -8,8 +8,8 @@ use crate::protos::{DegreeKind, Education};
 impl std::string::ToString for DegreeKind {
     fn to_string(&self) -> String {
         match self {
-            DegreeKind::Bachelors => "B.S.".to_string(),
-            DegreeKind::Masters => "M.S.".to_string(),
+            DegreeKind::Bachelors => "Bachelor of Science".to_string(),
+            DegreeKind::Masters => "Master of Sciences".to_string(),
             DegreeKind::NonDegree => "Non-Degree".to_string(),
         }
     }
@@ -56,7 +56,7 @@ impl EducationComponent {
     fn view_entry(&self, edu: &Education) -> Html {
         let title = match edu.degree {
             DegreeKind::NonDegree => "Non-Degree".to_owned(),
-            _ => format!("{} in {}", edu.degree.to_string(), edu.major),
+            _ => format!("{}: {}", edu.degree.to_string(), edu.major),
         };
         let period = &edu.period;
         let location = edu.parsed_location.clone().unwrap();

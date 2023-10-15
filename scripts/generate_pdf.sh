@@ -27,9 +27,10 @@ OUTFILE=$(cat resume_data.yaml \
 
 rm -rf "$OUTFILE"
 
-trunk build
-
 cd dist/
+rm -rf resume
+mkdir resume
+cp -r * resume/ > /dev/null || true
 python -m http.server 8081 &
 PID=$!
 cd ..
@@ -40,11 +41,11 @@ sleep 1
     google-chrome-stable --headless --disable-gpu \
         --run-all-compositor-stages-before-draw \
         --print-to-pdf="$OUTFILE" \
-        http://localhost:8081
+        http://localhost:8081/resume
 
 } || {
     printf ""
 }
 
 kill "$PID"
-rm -rf dist/
+rm -rf dist/resume

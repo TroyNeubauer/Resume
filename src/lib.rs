@@ -83,6 +83,9 @@ pub fn load_resume() -> Result<Resume, String> {
     }
     for exp in &mut base.experience {
         exp.parsed_location = Some(lookup_location(locations, &exp.location)?);
+        for duty in &mut exp.duty {
+            duty.tags.extend_from_slice(&exp.tags);
+        }
     }
     for edu in &mut base.education {
         edu.parsed_location = Some(lookup_location(locations, &edu.location)?);
