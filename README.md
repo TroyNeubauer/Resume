@@ -6,17 +6,18 @@ My resume.
 ### Local development
 
 The app is compiled using `trunk`. Local development can be via running:
-1. 
+
+Opening a nix shell (pulls in required dependencies):
 ```
-# Enters a nix shell (pulls in dependencies)
 nix develop
 ```
-2. 
+
+Using trunk to compile and interactively serve the webapp:
 ```
 trunk serve
 ```
 
-Trunk will compile the rust code to a wasm executable and setup a web server that will reload when any files are changed
+Trunk serve will recompile the webapp if any files are modified.
 
 ### Deploying
 Once in a nix shell run `deploy` or if outside run `nix develop --command deploy`. This will:
