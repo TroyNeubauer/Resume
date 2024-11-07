@@ -4,8 +4,8 @@ use yew::agent::Bridged;
 use yew::prelude::*;
 use yewtil::NeqAssign;
 
-use crate::protos::SkillCategory;
 use crate::tag_agent::TagAgent;
+use crate::SkillCategory;
 
 #[derive(Clone, Properties, PartialEq)]
 pub struct SkillProps {

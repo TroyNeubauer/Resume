@@ -1,8 +1,8 @@
 [package]
-name = "wasm-app"
+name = "resume"
 version = "0.1.0"
 authors = ["Troy Neubauer <troyneubauer@gmail.com>"]
-edition = "2018"
+edition = "2021"
 
 [lib]
 crate-type = ["cdylib", "rlib"]

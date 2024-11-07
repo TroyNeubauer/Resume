@@ -1,7 +1,7 @@
 use yew::prelude::*;
 use yewtil::NeqAssign;
 
-use crate::protos::Location;
+use crate::Location;
 
 #[derive(Clone, Properties, PartialEq)]
 pub struct LocationProps {

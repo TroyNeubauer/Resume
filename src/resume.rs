@@ -6,8 +6,8 @@ use crate::education::EducationComponent;
 use crate::experience::ExperienceComponent;
 use crate::location::LocationComponent;
 use crate::phone_number::PhoneNumberComponent;
-use crate::protos::Resume;
 use crate::skills::SkillComponent;
+use crate::Resume;
 
 #[derive(Clone, Properties, PartialEq)]
 pub struct ResumeProps {

@@ -64,8 +64,6 @@ experience:
     start: 2024-06-10
   location: Mountain View
   duty:
-  - description: 
-    tags: [Arducopter, Rust]
   - description: Maintence of existing Android drone control app. As owner of the app, balancing feature requests with testing and bug fixing
     tags: [Android, Gradle, Leadership, Rust]
 
@@ -89,7 +87,7 @@ experience:
   - description: Optimized video stream on Android App by leveraging the Java Native Interface to utilize existing optimized, Rust-based, video pipeline 
     tags: [JNI, Rust, Jetpack Compose, Android, Gradle, high-performance]
   - description: Added support for waypoint missions on drone via manipulation of ArduCopter state machine inside high-level, deterministic, software state machine
-    tags: [Arducopter, Rust]
+    tags: [Ardupilot, Rust]
 
 - title: Sensor Integration Engineer Intern
   organization: Anduril Industries Inc
@@ -103,8 +101,8 @@ experience:
     tags: [Scientific Method, Technical Writing]
   - description: Wrote low-latency hardware accelerated video stack in Rust for performing autonomous vehicle navigation via EO imaging in real time
     tags: [high-performance]
-  - description: Designed zero copy parser for low latency integration with LRF
-    tags: [high-performance, Rust, binrw]
+  - description: Designed zero copy parser for low latency integration with lidar sensor
+    tags: [high-performance, Rust, binrw, Lidar]
 
 - title: Sensor Integration Engineer Intern
   organization: Anduril Industries Inc
@@ -336,7 +334,7 @@ skills:
 
 - category: Other
   tags:
-  - Arducopter
+  - Ardupilot
   - Nix
   - Tracy
   - Control Theory

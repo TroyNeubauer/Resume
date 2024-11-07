@@ -5,20 +5,18 @@ mod education;
 mod experience;
 mod location;
 mod phone_number;
-mod protos;
 mod resume;
 mod skills;
 mod tag_agent;
+mod types;
 
 use std::{collections::HashSet, rc::Rc};
 
 use wasm_bindgen::prelude::*;
 use yew::prelude::*;
 
-use protos::Resume;
 use resume::ResumeComponent;
-
-use crate::protos::Location;
+pub use types::*;
 
 enum Msg {}
 
@@ -115,15 +113,34 @@ pub fn load_resume() -> Result<Resume, String> {
 
     let undefined = &all_referenced_tags - &all_defined_tags;
     if !undefined.is_empty() {
-        panic!("Undefined tags: {:?}", undefined);
+        return Err(format!("Undefined tags: {:?}", undefined));
     }
 
     let unused = &all_defined_tags - &all_referenced_tags;
     if !unused.is_empty() {
-        panic!("Unused tags: {:?}", unused);
+        return Err(format!("Unused tags: {:?}", unused));
     }
 
-    dbg!(&base);
+    // Remove archived tags from the left side
+    let non_archived_referenced_tags: HashSet<&str> = base
+        .experience
+        .iter()
+        .filter(|e| !e.archived)
+        .map(|e| e.duty.iter())
+        .flatten()
+        .map(|d| d.tags.iter())
+        .flatten()
+        .map(std::ops::Deref::deref)
+        .collect();
+
+    let archived_tags = &all_referenced_tags - &non_archived_referenced_tags;
+
+    for category in &mut base.skills {
+        category
+            .tags
+            .retain(|tag| !archived_tags.contains(tag.as_str()));
+    }
+
     Ok(base)
 }
 

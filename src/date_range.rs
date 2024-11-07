@@ -3,7 +3,7 @@ use std::string::ToString;
 use yew::prelude::*;
 use yewtil::NeqAssign;
 
-use crate::protos::DateRange;
+use crate::DateRange;
 
 fn format_month(date: &chrono::NaiveDate) -> String {
     date.format("%b %Y").to_string()

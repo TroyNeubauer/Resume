@@ -3,16 +3,17 @@ use yewtil::NeqAssign;
 
 use crate::date_range::DateRangeComponent;
 use crate::location::LocationComponent;
-use crate::protos::{DegreeKind, Education};
+use crate::{DegreeKind, Education};
 
-impl std::string::ToString for DegreeKind {
-    fn to_string(&self) -> String {
-        match self {
-            DegreeKind::Bachelors => "Bachelor of Science".to_string(),
-            DegreeKind::Masters => "Master of Sciences".to_string(),
-            DegreeKind::NonDegree => "Non-Degree".to_string(),
-            DegreeKind::License => "License".to_string(),
-        }
+impl std::fmt::Display for DegreeKind {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let s = match self {
+            DegreeKind::Bachelors => "Bachelor of Science",
+            DegreeKind::Masters => "Master of Sciences",
+            DegreeKind::NonDegree => "Non-Degree",
+            DegreeKind::License => "License",
+        };
+        s.fmt(f)
     }
 }
 
@@ -57,6 +58,7 @@ impl EducationComponent {
     fn view_entry(&self, edu: &Education) -> Html {
         let title = match edu.degree {
             DegreeKind::NonDegree => "Non-Degree".to_owned(),
+            DegreeKind::License => format!("{}", edu.major),
             _ => format!("{}: {}", edu.degree.to_string(), edu.major),
         };
         let period = &edu.period;

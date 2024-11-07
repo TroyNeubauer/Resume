@@ -4,8 +4,8 @@ use yewtil::NeqAssign;
 
 use crate::date_range::DateRangeComponent;
 use crate::location::LocationComponent;
-use crate::protos::{Duty, Experience};
 use crate::tag_agent::{TagAgent, TagUpdate};
+use crate::{Duty, Experience};
 
 #[derive(Clone, Properties, PartialEq)]
 pub struct ExperienceProps {
