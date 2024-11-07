@@ -1,16 +1,17 @@
-{ writeShellScriptBin, wasm, google-chrome, python3 }:
+{ writeShellScriptBin, google-chrome, python3 }:
 # google chrome doesnt play nicely with nix sandbox so use basic script instead
 writeShellScriptBin "generate_pdf" ''
-    if [ $# -eq 1 ]; then
+    if [ $# -eq 2 ]; then
         export OUTFILE=$1
+        export SRC=$2
     else
-      echo "Usage: generate_pdf <output file location>"
+      echo "Usage: generate_pdf <output pdf path> <server files path>"
       exit 1
     fi
 
     set -x
-    echo "Running web server against ${wasm}"
-    ${python3}/bin/python3 -m http.server 8081 -d ${wasm} &
+    echo "Running web server against $SRC"
+    ${python3}/bin/python3 -m http.server 8081 -d $SRC &
     PID=$!
 
     sleep 1

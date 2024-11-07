@@ -38,12 +38,9 @@
         };
         generate-pdf = import ./generate-pdf.nix {
           inherit (pkgs) writeShellScriptBin google-chrome python3;
-          # inherit wasm;
-          wasm = "/nix/store/cyfjfy1rjfqif37wd570i4jalv7c8bg0-wasm-0.1.0";
         };
         deploy = import ./deploy.nix {
           inherit (pkgs) writeShellScriptBin yq;
-          wasm = "/nix/store/cyfjfy1rjfqif37wd570i4jalv7c8bg0-wasm-0.1.0";
         };
         
       in {
