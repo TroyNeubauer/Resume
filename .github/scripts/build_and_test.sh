@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 cargo test --all-features
 cargo fmt -- --check
-cargo clippy --all-targets --all-features
+cargo clippy --all-targets --all-features -- --deny warnings
 cargo doc --no-deps
