@@ -54,6 +54,7 @@ pub enum DegreeKind {
     Bachelors,
     Masters,
     NonDegree,
+    License,
 }
 
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]

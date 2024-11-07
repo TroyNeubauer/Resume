@@ -5,11 +5,11 @@ email: troyneubauer@gmail.com
 phone_number:
   country_code: 1
   number: 7034008259
-location: Daytona Beach
+location: Mountain View
 linkedin_profile: troyneubauer
 github_profile: TroyNeubauer
 about_me: >
-  Driven Robotics Engineer with a passion for high performance systems, things that fly, embedded systems, and small details.
+  Driven Robotics Engineer with a passion for high performance systems, embedded systems, and small details.
 
 locations:
 - city: Remote
@@ -28,7 +28,6 @@ locations:
   state: California
   country: US
 
-
 education:
 - institution: Embry Riddle Aeronautical University
   major: Computer Science
@@ -37,6 +36,15 @@ education:
     start: 2020-09-01
     end: 2024-05-15
   degree: Bachelors
+  location: Daytona Beach
+
+- institution: Air America Flight Center
+  major: Private Pilot's license
+  description: Learned to fly Cesna 172's at part 61 school
+  period:
+    start: 2022-02-12
+    end: 2024-06-10
+  degree: License
   location: Daytona Beach
 
 - institution: George Mason University
@@ -49,36 +57,39 @@ education:
   location: Fairfax
 
 experience:
-- title: Robotics Software Engineer (contract)
-  organization: Anduril Industries Inc
-  website: https://anduril.com
-  period:
-    start: 2023-09-02
-  location: Remote
-  duty:
-  - description: Added support for waypoint missions on drone via manipulation of ArduCopter state machine inside high-level, deterministic, software state machine
-    tags: [Arducopter, Rust]
-  - description: Maintence of existing Android drone control app. As owner of the app, balancing feature requests with testing and bug fixing
-    tags: [Android, Gradle, Leadership, Rust]
-
 - title: Robotics Software Engineer
   organization: Anduril Industries Inc
   website: https://anduril.com
   period:
-    start: 2023-01-23
-    end: 2023-08-18
+    start: 2024-06-10
   location: Mountain View
+  duty:
+  - description: 
+    tags: [Arducopter, Rust]
+  - description: Maintence of existing Android drone control app. As owner of the app, balancing feature requests with testing and bug fixing
+    tags: [Android, Gradle, Leadership, Rust]
+
+
+- title: Robotics Software Engineer (contract)
+  organization: Anduril Industries Inc
+  website: https://anduril.com
+  period:
+    start: 2023-01-23
+    end: 2024-06-10
+  location: Remote
   duty:
   - description: Wrote and validated experimental low-latency video stack which was shown in customer demo less than a year after joining the project
     tags: [high-performance, Rust, Active Listening, Nvidia hardware platform]
   - description: Used the Tracy profiler and evidence based iteration to improve total Rust video stack latency by 45% over previous implementation
-    tags: [Tracy, high-performance, rust, Scientific Method]
+    tags: [Tracy, high-performance, Rust, Scientific Method]
   - description: Empirically derived time constant to correct offset vendor video timestamps for accurate state estimation
     tags: [Scientific Method, Rust, Nvidia hardware platform]
   - description: Re-wrote Jetpack Compose app for drone control in less than three months and demoed capability successfully to customer
     tags: [Constructive Feedback, Jetpack Compose, Android, Gradle, Shared preferences, Application lifecycle]
   - description: Optimized video stream on Android App by leveraging the Java Native Interface to utilize existing optimized, Rust-based, video pipeline 
     tags: [JNI, Rust, Jetpack Compose, Android, Gradle, high-performance]
+  - description: Added support for waypoint missions on drone via manipulation of ArduCopter state machine inside high-level, deterministic, software state machine
+    tags: [Arducopter, Rust]
 
 - title: Sensor Integration Engineer Intern
   organization: Anduril Industries Inc
@@ -122,13 +133,13 @@ experience:
   location: Fairfax
   duty:
   - description: Lead five person technical team in overhauling frontend, backend, VPN app and VPN edge server
-    tags: [Leadership, Drone CI/CD, Phabricator]
+    tags: [Leadership, Concourse, Phabricator]
   - description: Built VPN edge server currently deployed to 7 servers across the globe that handle terabytes of network traffic
     tags: [Tokio, rocket, serde, firewalld]
   - description: Migrated server architecture from OpenVPN to Wireguard with zero downtime for increased stability, performance, and maintainability
-    tags: [Tokio, rocket, serde, Wireguard, Leadership]
+    tags: [Tokio, rocket, serde, iptables, Wireguard, Leadership]
   - description: Created core VPN abstractions for cross platform support across Windows, MacOS, Linux, IOS, and Android
-    tags: [Tokio, serde, Wireguard, git, Premake, Lua, RapidJson, Flutter]
+    tags: [Tokio, serde, Wireguard, OpenVPN, Wintun, git, Premake, Lua, RapidJson, Flutter]
   - description: Utilized VPN abstractions and Flutter + Dart to make intuitive app guided by user testing
     tags: [Constructive Feedback, Active Listening, Flutter]
   - description: Oversaw design-oriented rewrite of the https://null.black frontend
@@ -143,7 +154,7 @@ experience:
   location: Daytona Beach
   duty:
   - description: Researching the effects of Cyber Attacks and non ideal conditions on communications in UAS Swarms
-    tags: [Netlogo 3D, NS3, Calculus, Linux Bash, Technical Writing]
+    tags: [Netlogo 3D, NS3, Calculus, Linux, Bash, Technical Writing]
   - description: Produced optimization tool that found UAV swarming parameters which lead to 72% faster swarm formation time
     tags: [Rust, Calculus, serde]
   - description: "Published findings in AIAA/IEEE 2022: T. Neubauer and M. I. Akbas. \"SOSUAS: Stability Optimized Swarming for Unmanned Aerial Systems.\" In the AIAA/IEEE Digital Avionics Systems Conference (DASC), September, 2022."
@@ -208,7 +219,7 @@ experience:
   - description: Implemented data collection to SD Card and real time RF downlink to ground station
     tags: [Embedded C, STM32, Embedded ARM, XBee RF Module]
   - description: Created ground station to render graphs of real time data
-    tags: [Premake, OpenGL, git, Linux Bash]
+    tags: [Premake, OpenGL, git, Linux, Bash]
   - description: Oversaw design of Printed Circuit Boards (PCBs) and circuit schematics that met production requirements for fabrication plants in both US and China
     tags: [STM32, git, Embedded ARM]
   - description: Defended design choices through briefs, papers and proposals that were thoroughly reviewed by NASA engineers
@@ -279,8 +290,8 @@ skills:
   - Encoders
   - Servos
   - CAN
+  - Lidar
   - XBee RF Module
-  - Lidar Sensor
   - Talon Motor Controllers
   - roboRIO
 
@@ -288,7 +299,7 @@ skills:
   tags:
   - iptables 
   - Wintun
-  - Wiregaurd
+  - Wireguard
   - OpenVPN
   - firewalld
 
@@ -298,26 +309,23 @@ skills:
   - CMake
   - Premake
   - NS3
-  - Curl
   - GRPC
   - OpenCV
 
 - category: DevOps
   tags:
-  - Docker
-  - GitHub Actions
-  - Drone CI/CD
-  - Concourse CI/CD
+  - Github Actions
+  - Concourse
   - CircleCI
   - Phabricator
   - git
-  - Fedora 34
 
 - category: Android
   tags:
   - Jetpack Compose
   - Gradle
   - Flutter
+  - Android
   - Shared preferences
   - Application lifecycle
 
@@ -325,13 +333,14 @@ skills:
   tags:
   - JNI
   - Gradle
-  - Java 13
 
 - category: Other
   tags:
   - Arducopter
   - Nix
+  - Tracy
   - Control Theory
+  - Calculus
   - Nvidia hardware platform
   - Embedded C
   - Linux

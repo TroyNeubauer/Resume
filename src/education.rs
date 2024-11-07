@@ -11,6 +11,7 @@ impl std::string::ToString for DegreeKind {
             DegreeKind::Bachelors => "Bachelor of Science".to_string(),
             DegreeKind::Masters => "Master of Sciences".to_string(),
             DegreeKind::NonDegree => "Non-Degree".to_string(),
+            DegreeKind::License => "License".to_string(),
         }
     }
 }

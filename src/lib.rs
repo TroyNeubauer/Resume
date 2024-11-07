@@ -10,7 +10,7 @@ mod resume;
 mod skills;
 mod tag_agent;
 
-use std::rc::Rc;
+use std::{collections::HashSet, rc::Rc};
 
 use wasm_bindgen::prelude::*;
 use yew::prelude::*;
@@ -77,10 +77,11 @@ pub fn load_resume() -> Result<Resume, String> {
             }
         }
         Err(format!(
-            "Failed to find city `{city} out of options: {:?}`",
+            "Unknown city `{city}. Available options are: {:?}`",
             locations.iter().map(|l| &l.city).collect::<Vec<_>>()
         ))
     }
+
     for exp in &mut base.experience {
         exp.parsed_location = Some(lookup_location(locations, &exp.location)?);
         for duty in &mut exp.duty {
@@ -91,6 +92,36 @@ pub fn load_resume() -> Result<Resume, String> {
         edu.parsed_location = Some(lookup_location(locations, &edu.location)?);
     }
     base.parsed_location = Some(lookup_location(locations, &base.location)?);
+
+    let all_referenced_tags: HashSet<&str> = base
+        .experience
+        .iter()
+        .map(|e| e.duty.iter())
+        .flatten()
+        .map(|d| d.tags.iter())
+        .flatten()
+        .map(std::ops::Deref::deref)
+        .collect();
+
+    let all_defined_tags: HashSet<&str> = base
+        .skills
+        .iter()
+        // Awards wont have any reference tags in experience, so dont count them
+        .filter(|s| s.category != "Awards")
+        .map(|e| e.tags.iter())
+        .flatten()
+        .map(std::ops::Deref::deref)
+        .collect();
+
+    let undefined = &all_referenced_tags - &all_defined_tags;
+    if !undefined.is_empty() {
+        panic!("Undefined tags: {:?}", undefined);
+    }
+
+    let unused = &all_defined_tags - &all_referenced_tags;
+    if !unused.is_empty() {
+        panic!("Unused tags: {:?}", unused);
+    }
 
     dbg!(&base);
     Ok(base)
