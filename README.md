@@ -1,20 +1,28 @@
-# wasm-app
+# Resume
 
-This crate contains the rust code for the static web assembly resume application.
+My resume.
 
-The app is compiled using `wasm-pack` with `rollup` for packaging the JavaScript distribution. These commands can be run with:
+
+### Local development
+
+The app is compiled using `trunk`. Local development can be via running:
+1. 
 ```
-make build
+# Enters a nix shell (pulls in dependencies)
+nix develop
+```
+2. 
+```
+trunk serve
 ```
 
-After building, the app can be viewed in a web browser by serving this directory. To serve at `localhost:8080` using the python http.server:
-```
-make serve
-```
+Trunk will compile the rust code to a wasm executable and setup a web server that will reload when any files are changed
 
-Alternatively, tools such as the [VSCode plugin Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) can be used to auto-detect changes during development. Using the following setting in your `.vscode/settings.json`:
-```json
-{
-    "liveServer.settings.root": "/wasm-app"
-}
-```
+### Deploying
+Once in a nix shell run `deploy` or if outside run `nix develop --command deploy`. This will:
+1. Compile the rust code to a wasm executable
+2. Create wasm js wrapper
+3. Copy `index.html`, `style.css`, etc into the directory that will become the webserver
+4. Run `generate_pdf`, which runs chrome headlessly on a temporaly server
+5. Copies these files to `tneubauer.xyz`
+
