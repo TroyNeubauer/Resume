@@ -81,7 +81,7 @@ impl SkillComponent {
     }
 
     fn view_tag(&self, tag: &str) -> Html {
-        let mut class = if self.selected_tags.contains(&tag.to_string()) {
+        let mut class = if self.selected_tags.contains(tag) {
             "tag-item tag-selected".to_string()
         } else {
             "tag-item".to_string()

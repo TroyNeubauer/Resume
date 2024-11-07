@@ -63,7 +63,7 @@ pub fn run_app() {
     App::<Model>::new().mount_to_body_with_props(props);
 }
 
-const RESUME_DATA: &'static str = include_str!("../resume_data.yaml");
+const RESUME_DATA: &str = include_str!("../resume_data.yaml");
 
 pub fn load_resume() -> Result<Resume, String> {
     let mut base = serde_yaml::from_str::<Resume>(RESUME_DATA).map_err(|e| format!("{e:?}"))?;
@@ -94,10 +94,8 @@ pub fn load_resume() -> Result<Resume, String> {
     let all_referenced_tags: HashSet<&str> = base
         .experience
         .iter()
-        .map(|e| e.duty.iter())
-        .flatten()
-        .map(|d| d.tags.iter())
-        .flatten()
+        .flat_map(|e| e.duty.iter())
+        .flat_map(|d| d.tags.iter())
         .map(std::ops::Deref::deref)
         .collect();
 
@@ -106,8 +104,7 @@ pub fn load_resume() -> Result<Resume, String> {
         .iter()
         // Awards wont have any reference tags in experience, so dont count them
         .filter(|s| s.category != "Awards")
-        .map(|e| e.tags.iter())
-        .flatten()
+        .flat_map(|e| e.tags.iter())
         .map(std::ops::Deref::deref)
         .collect();
 
@@ -126,10 +123,8 @@ pub fn load_resume() -> Result<Resume, String> {
         .experience
         .iter()
         .filter(|e| !e.archived)
-        .map(|e| e.duty.iter())
-        .flatten()
-        .map(|d| d.tags.iter())
-        .flatten()
+        .flat_map(|e| e.duty.iter())
+        .flat_map(|d| d.tags.iter())
         .map(std::ops::Deref::deref)
         .collect();
 

@@ -58,13 +58,13 @@ impl EducationComponent {
     fn view_entry(&self, edu: &Education) -> Html {
         let title = match edu.degree {
             DegreeKind::NonDegree => "Non-Degree".to_owned(),
-            DegreeKind::License => format!("{}", edu.major),
-            _ => format!("{}: {}", edu.degree.to_string(), edu.major),
+            DegreeKind::License => edu.major.to_string(),
+            _ => format!("{}: {}", edu.degree, edu.major),
         };
         let period = &edu.period;
         let location = edu.parsed_location.clone().unwrap();
         let desc = match &edu.description {
-            x if x != "" => html! { <p>{ format!("{}", x) }</p> },
+            x if !x.is_empty() => html! { <p>{ format!("{}", x) }</p> },
             _ => html! {},
         };
         html! {
