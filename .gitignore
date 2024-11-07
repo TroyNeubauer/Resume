@@ -8,6 +8,5 @@ __pycache__/
 
 # Build targets
 **/target
-**/Cargo.lock
 **/pkg
 dist/

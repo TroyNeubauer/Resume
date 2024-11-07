@@ -121,15 +121,17 @@ impl ResumeComponent {
                     <li class="print-only">
                         { "View this resume as a WebAssembly app:" }
                         <p>
-                            <i class="fa fa-external-link" aria-hidden="true"></i>
-                            { host_link }
+                            <a href=format!("https://{}", &host_link)>
+                                <i class="fa"></i>{ host_link }
+                            </a>
                         </p>
                     </li>
                     <li class="print-only">
                         { "View the source code:" }
                         <p>
-                            <i class="fa fa-external-link" aria-hidden="true"></i>
-                            { source_code }
+                            <a href=format!("https://{}", &source_code)>
+                                <i class="fa"></i>{ source_code }
+                            </a>
                         </p>
                     </li>
                 </ul>
